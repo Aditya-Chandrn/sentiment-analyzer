@@ -1,0 +1,69 @@
+.navbar{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 5vw;
+    border-right: 1px solid rgb(201, 201, 201);
+    align-items: center;
+    font-size: 1rem;
+}
+
+.navbar:hover{
+    width: 20vw;
+}
+
+.navOption{
+    color: black;
+    padding: 5vh 1.3vw;
+    height: 5vh;
+    width: inherit;
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+    font-weight: 500;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.icon{
+    height: inherit;
+    aspect-ratio: 1.05;
+}
+
+.currentOption{
+    background-color: #ff5d12;
+    filter: invert(100%);
+}
+
+.auth{
+    position: absolute;
+    bottom: 0;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.name{
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.id{
+    font-size: 0.8rem;
+}
+
+.profileIcon{
+    height: inherit;
+    border-radius: 100%;
+}

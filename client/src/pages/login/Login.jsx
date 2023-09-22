@@ -1,9 +1,6 @@
-"use client"
-
 import React, { useState } from 'react'
 import styles from "./login.module.css";
 import axios from 'axios';
-import { redirect } from 'next/navigation';
 
 const Login = () => {
   const [adminId, setAdminId] = useState("");

@@ -1,13 +1,17 @@
-import Home from "@/app/home/page";
-import Link from "next/link";
+"use client"
 
-const page = () => {
+import Navbar from "@/components/navbar/Navbar";
+import { redirect } from "next/navigation";
+import { useState } from "react";
+
+const page = ({children}) => {
+  const [isLogged, setIsLogged] = useState(true);
+  if(!isLogged) redirect("/login")
   return (
-    <div>
-        page
-        <Home/>
-    </div>
-  )
+      <div>
+          <Navbar/> {children}
+      </div>
+    )
 }
 
 export default page

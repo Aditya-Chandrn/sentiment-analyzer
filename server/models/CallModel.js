@@ -9,12 +9,20 @@ const call = new Schema({
     empId : {
         type: String,
         ref: "EmployeeData",
-        required: true
+        // required: true
+    },
+    productId : {
+        type: String,
+        ref: "ProductData",
     },
     customerPhone: {
         type: Number,
-        require: true
+        // required: true
     },
+    callPath : {
+        type: String,
+        required : true
+    }
 });
 
 const analyzeCall = new Schema({

@@ -1,3 +1,9 @@
 .layout{
     display: flex;
 }
+
+.outlet{
+    position: absolute;
+    left: 5vw;
+    z-index: 0;
+}

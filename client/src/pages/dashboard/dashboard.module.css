@@ -1,0 +1,40 @@
+.App {
+  display: grid; 
+  grid-template-rows: 1fr 1fr; 
+  grid-template-columns: 2.5fr 2.5fr 3fr; 
+  height: 100vh; 
+  width: 100vw; 
+  gap: 10px; 
+  overflow: hidden;
+}
+
+.panel {
+  border: 1px solid #ccc;
+  overflow: auto; 
+  background-color: white;
+  height: 100%; 
+  width: 100%; 
+}
+
+.panel1, .panel2, .panel3 {
+  grid-row: 1; 
+}
+
+.panel2, .panel3, .panel5, .panel6 {
+  overflow: hidden;
+}
+
+.panel4, .panel5, .panel6 {
+  grid-row: 2; 
+}
+
+.sidebar {
+  position: fixed; 
+  
+}
+
+.heading {
+  text-align: center;
+  font-size: x-large;
+  padding-bottom: 20px;
+}

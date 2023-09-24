@@ -6,10 +6,14 @@
     border-right: 1px solid rgb(201, 201, 201);
     align-items: center;
     font-size: 1rem;
+    background-color: aliceblue;
+    z-index: 100;
+    position: fixed;
 }
 
 .navbar:hover{
     width: 20vw;
+    position: fixed;
 }
 
 .navOption{

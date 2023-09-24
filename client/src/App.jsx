@@ -9,12 +9,14 @@ import Dashboard from 'pages/dashboard/Dashboard';
 import EmployeeAnalytics from 'pages/(analytics)/emp_analytics/EmpAnalytics';
 import ProductAnalytics from 'pages/(analytics)/product_analytics/ProductAnalytics';
 import Records from 'pages/records/Records';
+import Upload from 'testing/Test';
 
 
 function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path='/upload' element={<Upload/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Dashboard/>}/>

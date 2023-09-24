@@ -11,10 +11,12 @@ const employee = new Schema({
         type: String,
         required: true
     },
-    empImage : {
-        type : String,
-        unique: true,
+    empType : {
+        type: Number,
         required: true
+    },
+    empImage: {
+        type: Buffer
     },
     createdAt : {
         type: Date,
@@ -22,17 +24,25 @@ const employee = new Schema({
     }
 });
 
-const admin = new Schema({
-    adminId: {
+const product = new Schema({
+    productId : {
         type: String,
-        ref: "EmployeeData",
+        unique: true,
         required: true
     },
-    password: {
+    productName : {
         type: String,
         required: true
+    },
+    productImage: {
+        type: Buffer
+    },
+    createdAt : {
+        type: Date,
+        default: Date.now()
     }
-})
+});
+
 
 admin.pre("save", async function () {
     const salt = await bcrypt.genSalt(12);
@@ -40,9 +50,9 @@ admin.pre("save", async function () {
 });
 
 const employeeData = model("EmployeeData", employee);
-const adminData = model ("AdminData", admin);
+const productData = model ("ProductData", product);
 
-module.exports = {employeeData, adminData};
+module.exports = {employeeData,productData};
 
 
 

@@ -1,0 +1,7 @@
+.upload{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    gap: 2vh;
+    margin: 0 auto;
+}

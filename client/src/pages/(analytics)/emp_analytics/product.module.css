@@ -1,0 +1,48 @@
+.product{
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBar{
+    display: flex;
+    align-items: center;
+    width: 30vw;
+    margin: 1vh auto;
+    height: 5vh;
+    border: 1px solid black;  
+    padding: 1vh 1vw;
+    outline: none;
+    position: relative;
+    border-radius: 5vh;
+}
+
+
+.search{
+    width: 28vw;
+    height: inherit;
+    border: none;
+    border-radius: 5vh;
+    font-size: 1rem;
+}
+
+.search:focus{
+    outline: none;
+}
+
+.submit{
+    position: absolute;
+    right: 5px;
+    height: inherit;
+    width: 5vh;
+    border: none;
+    background-color: transparent;
+}
+
+.icon{
+    height: 3vh;
+}
+
+.result{
+    /* font-size: 100px; */
+}

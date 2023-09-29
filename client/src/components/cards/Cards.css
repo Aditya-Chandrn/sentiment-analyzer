@@ -1,0 +1,71 @@
+.Cards{
+    border: 1px solid grey;
+    margin: 20px;
+    padding: 5px;
+}
+
+.Cards:hover{
+    box-shadow: 2px 2px 5px grey;
+}
+
+.flex{
+    display: flex;
+}
+.hid{
+    display: none;
+}
+
+.empImage img{
+    margin: 8px;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 35px;
+    width: 60px;
+    height: 60px;
+}
+
+.empImageOpen img{
+    margin: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 150px;
+    height: 150px;
+
+}
+
+.empName{
+    /* background-color: aqua; */
+    /* text-align: center; */
+    width: 100%;
+    font-size: 18px;
+    padding-left: 5px;
+    margin-left:5px
+}
+
+.empNameOpen{
+    width: 100%;
+    text-align: top;
+    font-size: 20px;
+    padding-left: 5px;
+    margin-left:5px;
+}
+
+.title{
+    font-size: 25px;
+    margin-top: 23px;
+    text-decoration:double;
+}
+
+.titleOpen{
+    font-size: 35px;
+    margin: 10px;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.subtitles{
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}

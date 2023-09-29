@@ -9,11 +9,15 @@
     background-color: aliceblue;
     z-index: 100;
     position: fixed;
+    transition: 0.3s;
+    white-space: nowrap;
 }
 
 .navbar:hover{
     width: 20vw;
     position: fixed;
+    transition: 0.3s;
+    /* font-size: 15px; */
 }
 
 .navOption{

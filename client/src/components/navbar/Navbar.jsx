@@ -30,18 +30,25 @@ const Profile = () => {
     const [adminId, setAdminId] = useState("AdminId");
     const [adminName, setAdminName] = useState("AdminName");
     const [adminImage, setAdminImage] = useState(DefaultUserIcon);
+    const [imgLoad, setImgLoad] = useState(false);
+
+    const onLoad = () => {
+        setImgLoad(true);
+    };
 
     return(
         <div className={styles.navOption}>
+
             <img
                 className={styles.profileIcon}
                 src={adminImage} 
                 alt={adminName.toLowerCase()}
-            /> 
-            <div className={styles.info}>
+                onLoad= {onLoad}
+            />
+            {imgLoad ? <div className={styles.info}>
                 <div className={styles.name}>{adminName}</div>
                 <div className={styles.id}>{adminId}</div>
-            </div>
+            </div>: " "}
         </div>
     );
 }

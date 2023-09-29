@@ -38,7 +38,7 @@ const Records = () => {
         )}
       </table>
       <div className={styles.footer}>
-          {currentLimit-14} - {currentLimit} of {randomData.length}
+          {currentLimit-14} - {(currentLimit > randomData.length )? randomData.length : currentLimit } of {randomData.length}
           <button className={styles.button} onClick={decreaseLimit}>&lt;</button>
           <button className={styles.button} onClick={increaseLimit}>&gt;</button>
       </div>

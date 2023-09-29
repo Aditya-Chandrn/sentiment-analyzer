@@ -1,0 +1,45 @@
+[
+
+    {
+      "empid": "7",
+      "Positive": 199,
+      "Neutral": 58,
+      "Negative": 152
+    },
+    {
+      "empid": "6",
+      "Positive": 76,
+      "Neutral": 132,
+      "Negative": 175
+    },
+    {
+      "empid": "5",
+      "Positive": 49,
+      "Neutral": 26,
+      "Negative": 67
+    },
+    {
+      "empid": "4",
+      "Positive": 197,
+      "Neutral": 144,
+      "Negative": 3
+    },
+    {
+      "empid": "3",
+      "Positive": 55,
+      "Neutral": 61,
+      "Negative": 50
+    },
+    {
+      "empid": "2",
+      "Positive": 135,
+      "Neutral": 170,
+      "Negative": 99
+    },
+    {
+      "empid": "1",
+      "Positive": 131,
+      "Neutral": 106,
+      "Negative": 112
+    }
+  ]

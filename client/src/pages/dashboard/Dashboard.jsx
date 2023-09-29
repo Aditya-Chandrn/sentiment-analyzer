@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './dashboard.module.css'; 
-import CallsTable from "components/charts and tables/CallsTable.js";
-import EmpChart from 'components/charts and tables/EmpData.js';
-import PieChart from 'components/charts and tables/PieChart';
+import CallsTable from './../../components/charts and tables/CallsTable.js';
+import EmpChart from '../../components/charts and tables/EmpBar.js';
+import PieChart from './../../components/charts and tables/PieChart';
 
 const data = {
   labels: ['Employee 1', 'Employee 2', 'Employee 3'],

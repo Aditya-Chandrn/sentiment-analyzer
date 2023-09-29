@@ -1,10 +1,10 @@
 import React from 'react';
-import fakeData from './MOCK_DATA.json';
+import CallsData from './../../pages/dashboard/CallsTableData.json';
 import { useTable } from 'react-table';
 import './CallsTable.css';
 
 function CallsTable() {
-  const data = React.useMemo(() => fakeData, []);
+  const data = React.useMemo(() => CallsData, []);
   const columns = React.useMemo(
     () => [
       {

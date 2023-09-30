@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import cors from "cors";
 
 import EmployeeRouter from "./routes/EmployeeRouter.js";
-// import CallRouter from "./routes/CallRouter.js";
+import CallRouter from "./routes/CallRouter.js";
 import ProductRouter from "./routes/ProductRouter.js";
 
 //app setup
@@ -17,9 +17,9 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-
+//routes
 app.use("/api/employee",EmployeeRouter);
-// app.use("/api/call",CallRouter);
+app.use("/api/call",CallRouter);
 app.use("/api/product",ProductRouter);
 
 dotenv.config();

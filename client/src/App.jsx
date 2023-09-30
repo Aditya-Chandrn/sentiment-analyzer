@@ -11,6 +11,7 @@ import ProductAnalytics from 'pages/(analytics)/product_analytics/ProductAnalyti
 import Records from 'pages/records/Records';
 import CreateEmployee from 'createData/createEmployee/createEmployee';
 import CreateProduct from 'createData/createProduct/createProduct';
+import CreateCall from 'createData/createCall/createCall';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
       <Routes>
         <Route path='/employee/create' element={<CreateEmployee/>}/>
         <Route path='/product/create' element={<CreateProduct/>}/>
-        <Route path='/call/create' element={<CreateEmployee/>}/>
+        <Route path='/call/create' element={<CreateCall/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Dashboard/>}/>

@@ -15,36 +15,52 @@ const makeDate = () => {
     return fullDate;
 }
 
+const makeTime = () => {
+    const time = new Date();
+    const seconds = time.getSeconds();
+    const minutes = time.getMinutes();
+    const hours = time.getHours();
 
-const CreateEmployee = () => {
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [fname, setFname] = useState();
-    const [lname, setLname] = useState();
-    const [type, setType] = useState();
-    const [joined, setJoined] = useState(makeDate);
+    const fullTime = hours*60*60 + minutes*60 + seconds;
+    return fullTime;
+}
+
+
+const CreateCall = () => {
+    const [callFile, setCallFile] = useState(null);
+    const [empId, setEmpId] = useState();
+    const [prodId, setProdId] = useState();
+    const [createdTime, setCreatedTime] = useState(makeTime);
+    const [createdDate, setCreatedDate] = useState(makeDate);
+
+    const changeTime= (e) => {
+        e.preventDefault();
+        let [newDate, newTime] = e.target.value.split("T");
+
+        newDate = newDate.split("-").join("");
+        const [hour, min, sec] = newTime.split(":").join("");
+        newTime = hour*60*60 + min*60+ sec;
+        setCreatedDate(newDate);
+        setCreatedTime(newTime);
+    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(!selectedFile){
+        if(!callFile){
             alert("Select a file");
             return;
         }
 
-        const newJoined = joined.split("-").join("");
-        setJoined(newJoined);
-
-
         const formData = new FormData();
-        formData.append("fname",fname);
-        formData.append("lname",lname);
-        formData.append("joined",joined);
-        formData.append("type",type);
-        formData.append('image',selectedFile);
+        formData.append("callFile",callFile);
+        formData.append("empId",empId);
+        formData.append("prodId",prodId);
+        formData.append('createdDate',createdDate);
+        formData.append('createdTime',createdTime);
 
-        console.log(formData);
-
-        const url = "http://localhost:5000/api/employee/create";
+        const url = "http://localhost:5000/api/call/create";
 
         axios.post(url, formData, {
             headers: {
@@ -52,25 +68,21 @@ const CreateEmployee = () => {
             },
             withCredentials: true
         })
-        .then(response => console.log(response.data))
+        .then(response => alert(response.data))
         .catch(error => console.log(error.message));
 
     }
 
     return (
         <form className={styles.upload} onSubmit={handleSubmit}>
-            <input type='file' name="image" onChange={e => setSelectedFile(e.target.files[0])}/>
-            <input type='text' name="fname" onChange={e => setFname(e.target.value)}/>
-            <input type='text' name="lname" onChange={e => setLname(e.target.value)}/>
-            <select type='dropdown' name="type" onChange={e => setType(e.target.value)}>
-                <option value={0}>0</option>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-            </select>
-            <input type='date' name="joined" onChange={e => setJoined(e.target.value)}/>
+            <input type='file' name="callFile" onChange={e => setCallFile(e.target.files[0])}/>
+            Emp ID<input type='text' name="empId" onChange={e => setEmpId(e.target.value)}/>
+            Prod ID <input type='text' name="prodId" onChange={e => setProdId(e.target.value)}/>
+            Date Time
+            <input type='datetime-local' name="createdAt" step="1" onChange={e => changeTime(e)}/>
             <button type='submit'>Upload</button>
         </form>
     )
 }
 
-export default CreateEmployee;
+export default CreateCall;

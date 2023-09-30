@@ -1,25 +1,10 @@
-.records{
-    margin: 0px;
-    width: 91vw;
-    padding: 30px;
-}
-
-.callTable, table{
-    margin-bottom: 1.5vh;
-    
-}
-tr, td, th{
-    border: 3px solid black;
-    height: 4vh;
-}
-
 .footer{
-    text-align: center;
+    /* text-align: center; */
     font-size: 20px;
     width: 100%;
     padding: 5px;
     position: fixed;
-    left: 0vh;
+    left: 15vh;
     bottom: 3vh;
 }
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import DashboardIcon from "assets/dashboard.png";
 import "./Cards.css";
 
 
@@ -12,17 +11,16 @@ const Cards = (props) => {
 
     return (
     <div>
-        <div class='Cards'>
+        <div class='Cards' onClick={props.onClick}>
             <div className='flex'>
             {/* Image */}
-            {/* {props.employeeImage} */}
-            <div class={props.openCard? 'empImageOpen': 'empImage'}>
-                <img src={DashboardIcon} alt={DashboardIcon}/>
+            <div class={props.active? 'empImageOpen': 'empImage'}>
+                <img src= {props.image} alt={props.fname}/>
             </div>
             {/* Details */}
-            <div class={props.openCard? 'empNameOpen': 'empName'}>
-                <div class={props.openCard? 'titleOpen': 'title'}>{props.fname} {props.lname} Employee Name</div>
-                <div class={props.openCard? 'empDetails' : 'hid' }>
+            <div class={props.active? 'empNameOpen': 'empName'}>
+                <div class={props.active? 'titleOpen': 'title'}>{props.fname} {props.lname}</div>
+                <div class={props.active? 'empDetails' : 'hid' }>
                     <div class='subtitles'>
                         Employee Id : {props.empId} 
                     </div>

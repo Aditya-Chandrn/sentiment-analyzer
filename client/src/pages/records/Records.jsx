@@ -3,16 +3,16 @@ import styles from "./records.module.css";
 import {randomData} from "assets/mock_datasets";
 
 const Records = () => {
-  const [currentLimit, setCurrentLimit] = useState(15);
+  const [currentLimit, setCurrentLimit] = useState(10);
 
   const decreaseLimit = () => {
-    if(currentLimit <=15) return;
-    setCurrentLimit(currentLimit-15);
+    if(currentLimit <=10) return;
+    setCurrentLimit(currentLimit-10);
   }
 
   const increaseLimit = () => {
     if(currentLimit >= randomData.length) return;
-    setCurrentLimit(currentLimit+15);
+    setCurrentLimit(currentLimit+10);
   }
 
   return (
@@ -26,7 +26,7 @@ const Records = () => {
           <th>Call Rating</th>
           <th>Call Length</th>
         </tr>
-        {randomData.slice(currentLimit-15,currentLimit).map((call, index) =>  
+        {randomData.slice(currentLimit-10,currentLimit).map((call, index) =>  
             <tr key={index}>
               <td>{call.callId}</td>
               <td>{call.productId}</td>
@@ -40,7 +40,7 @@ const Records = () => {
       <div className={styles.footer}>
           <button className={styles.button} onClick={decreaseLimit}>&lt;</button>
           &nbsp;&nbsp;&nbsp;
-          {currentLimit-14} - {(currentLimit > randomData.length )? randomData.length : currentLimit } of {randomData.length}
+          {currentLimit-9} - {(currentLimit > randomData.length )? randomData.length : currentLimit } of {randomData.length}
           &nbsp;&nbsp;&nbsp;
           <button className={styles.button} onClick={increaseLimit}>&gt;</button>
       </div>

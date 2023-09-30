@@ -3,6 +3,7 @@ import styles from "./product.module.css";
 import SearchIcon from "assets/search.png";
 import axios from 'axios';
 import Cards from 'components/cards/Cards_p';
+import LineChart from 'components/charts and tables/LineChart';
 
 const ProductAnalytics = () => {
   const [search, setSearch] = useState("");
@@ -103,7 +104,8 @@ return (
 
 {/* Employee Analytics */}
       <div class='new'>
-        <h2>Graphs</h2>
+        <h2>Performance Graph</h2>
+        <LineChart/>
       </div>
     </div>
   </div>

@@ -1,10 +1,8 @@
 import React from 'react';
-import CallsData from './../../pages/dashboard/CallsTableData.json';
 import { useTable } from 'react-table';
 import './CallsTable.css';
 
-function CallsTable() {
-  const data = React.useMemo(() => CallsData, []);
+const CallsTable = ({data}) => {
   const columns = React.useMemo(
     () => [
       {
@@ -31,7 +29,7 @@ function CallsTable() {
     useTable({ columns, data });
 
   return (
-    <div className="table-container">
+    <div>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (

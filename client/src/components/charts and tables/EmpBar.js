@@ -58,11 +58,8 @@
 
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar'
-import barData from './../../pages/dashboard/EmpBarData.json'
 
-const EmpChart = () => {
-
-    const data = React.useMemo(() => barData, [])
+const EmpChart = ({data}) => {
 
     return (
       <ResponsiveBar
@@ -73,7 +70,7 @@ const EmpChart = () => {
             'Negative'
         ]}
         indexBy="empid"
-        margin={{ top: 35, right: 130, bottom: 55, left: 60 }}
+        margin={{ top: 35, right: 100, bottom: 75, left: 60 }}
         padding={0.3}
         layout="horizontal"
         valueScale={{ type: 'linear' }}

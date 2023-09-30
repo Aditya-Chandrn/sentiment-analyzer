@@ -43,6 +43,12 @@
     height: 3vh;
 }
 
-.result{
-    /* font-size: 100px; */
+/* .result{
+    font-size: 100px;
+} */
+
+h2 {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 0;
 }

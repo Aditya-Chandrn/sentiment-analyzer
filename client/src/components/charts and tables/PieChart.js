@@ -1,11 +1,9 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie'
-import chartData from './../../pages/dashboard/PieChartData.json'
 
-const PieChart = () => {
-  const data = React.useMemo(() => chartData, []);
+const PieChart = ({data}) => {
 
-  return (
+    return (
     <ResponsivePie
         data={data}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}

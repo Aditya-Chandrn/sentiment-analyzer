@@ -38,8 +38,10 @@ const Records = () => {
         )}
       </table>
       <div className={styles.footer}>
-          {currentLimit-14} - {(currentLimit > randomData.length )? randomData.length : currentLimit } of {randomData.length}
           <button className={styles.button} onClick={decreaseLimit}>&lt;</button>
+          &nbsp;&nbsp;&nbsp;
+          {currentLimit-14} - {(currentLimit > randomData.length )? randomData.length : currentLimit } of {randomData.length}
+          &nbsp;&nbsp;&nbsp;
           <button className={styles.button} onClick={increaseLimit}>&gt;</button>
       </div>
     </div>

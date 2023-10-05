@@ -14,7 +14,7 @@ const fetchAllEmployees = async () => {
             const employeeData = doc.data();
             const id = doc.id;
             const image = await getImage(id);
-            return { ...employeeData, id, image };
+            return { ...employeeData, id, image};
         });
 
         // Wait for all image promises to resolve

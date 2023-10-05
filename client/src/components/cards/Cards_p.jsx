@@ -1,33 +1,24 @@
 import React from 'react'
-import DashboardIcon from "assets/dashboard.png";
 import "./Cards.css";
 
-
-const Cards = (props) => {
-    // const [cardOpen, setCardOpen] = useState(false);
-
-    // const onClick= ()=>{
-    //     cardOpen ? setCardOpen(false) : setCardOpen(true);
-    // }
-
+const CardsP = (props) => {
     return (
     <div>
-        <div class='Cards'>
+        <div class='Cards' onClick={props.onClick}>
             <div className='flex'>
             {/* Image */}
-            {/* {props.employeeImage} */}
-            <div class={props.openCard? 'empImageOpen': 'empImage'}>
-                <img src={DashboardIcon} alt={DashboardIcon}/>
+            <div class={props.cardMin ? 'empImage' : props.active? 'empImageOpen': 'empImageSmall'}>
+                <img src= {props.image} alt=""/>
             </div>
             {/* Details */}
-            <div class={props.openCard? 'empNameOpen': 'empName'}>
-                <div class={props.openCard? 'titleOpen': 'title'}>{props.fname} {props.lname} Product Name</div>
-                <div class={props.openCard? 'empDetails' : 'hid' }>
+            <div class={props.cardMin ? 'empName' : props.active? 'empNameOpen': 'empNameSmall'}>
+                <div class={props.cardMin ? 'title' : props.active? 'titleOpen': 'titleSmall'}>{props.fname}</div>
+                <div class={props.active? 'empDetails' : 'hid' }>
                     <div class='subtitles'>
-                        Product Id : {props.empId} 
+                        Product Id : {props.prodId} 
                     </div>
                     <div class='subtitles'>
-                        Release Date : {props.joinDate}
+                        Release Date : {props.joinDate.slice(6,8)}/{props.joinDate.slice(4,6)}/{props.joinDate.slice(0,4)} 
                     </div>
                     <div class='subtitles'>
                         Performance : {props.empPerformance}
@@ -40,4 +31,4 @@ const Cards = (props) => {
   )
 }
 
-export default Cards
+export default CardsP

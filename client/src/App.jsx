@@ -12,12 +12,14 @@ import Records from 'pages/records/Records';
 import CreateEmployee from 'createData/createEmployee/createEmployee';
 import CreateProduct from 'createData/createProduct/createProduct';
 import CreateCall from 'createData/createCall/createCall';
+import Test from 'test';
 
 
 function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path='/test' element={<Test/>}/>
         <Route path='/employee/create' element={<CreateEmployee/>}/>
         <Route path='/product/create' element={<CreateProduct/>}/>
         <Route path='/call/create' element={<CreateCall/>}/>

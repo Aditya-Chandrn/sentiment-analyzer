@@ -1,0 +1,17 @@
+.test{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.red{
+    height: 10vh;
+    width: 10vh;
+    background-color: red;
+}
+
+.green{
+    height: 10vh;
+    width: 10vh;
+    background-color: green;
+}

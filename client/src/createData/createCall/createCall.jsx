@@ -38,8 +38,8 @@ const CreateCall = () => {
         let [newDate, newTime] = e.target.value.split("T");
 
         newDate = newDate.split("-").join("");
-        const [hour, min, sec] = newTime.split(":").join("");
-        newTime = hour*60*60 + min*60+ sec;
+        const [hour,min,sec] = newTime.split(":");
+        newTime =  hour*60*60 + min*60 + (sec ? sec*1 : 0);
         setCreatedDate(newDate);
         setCreatedTime(newTime);
     }
@@ -59,6 +59,8 @@ const CreateCall = () => {
         formData.append("prodId",prodId);
         formData.append('createdDate',createdDate);
         formData.append('createdTime',createdTime);
+
+        console.log(`${createdDate}     ${createdTime}`)
 
         const url = "http://localhost:5000/api/call/create";
 

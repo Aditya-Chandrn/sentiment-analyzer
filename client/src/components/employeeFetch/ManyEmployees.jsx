@@ -56,6 +56,7 @@ const ManyEmployees = () => {
           fname={employee.fname}
           lname={employee.lname}
           image={employee.image}
+          // empPerformance={employee.type}
           joinDate= {employee.joined}
           onClick = {() => selectedCard===index? setSelectedCard(null) :setSelectedCard(index)}
           active = {selectedCard===index}

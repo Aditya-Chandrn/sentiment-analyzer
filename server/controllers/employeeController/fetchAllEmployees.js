@@ -13,8 +13,8 @@ const fetchAllEmployees = async () => {
         const imagePromises = snapshot.docs.map(async (doc) => {
             const employeeData = doc.data();
             const id = doc.id;
-            const image = await getImage(id);
-            return { ...employeeData, id, image};
+            // const image = await getImage(id);
+            return { ...employeeData, id}; //, image
         });
 
         // Wait for all image promises to resolve

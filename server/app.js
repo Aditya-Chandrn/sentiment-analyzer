@@ -3,9 +3,11 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from "cors";
 
-import EmployeeRouter from "./routes/EmployeeRouter.js";
-import CallRouter from "./routes/CallRouter.js";
-import ProductRouter from "./routes/ProductRouter.js";
+import EmployeeRouter from "./routes/employeeRouter.js";
+import CallRouter from "./routes/callRouter.js";
+import ProductRouter from "./routes/productRouter.js";
+import PerformanceRouter from "./routes/performanceRouter.js";
+
 
 //app setup
 const app = express();
@@ -21,6 +23,7 @@ app.use(express.urlencoded({extended: true}));
 app.use("/api/employee",EmployeeRouter);
 app.use("/api/call",CallRouter);
 app.use("/api/product",ProductRouter);
+app.use("/api/performance",PerformanceRouter);
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;

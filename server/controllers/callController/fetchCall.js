@@ -16,6 +16,7 @@ const fetchCall = async (id) => {
         const audio = await getAudio(callData);
         
         callData.audio = audio;
+        delete callData.audioDriveId;
         console.log(`Call data with id - ${id} - fetched successfully`);
         return callData;
     }

@@ -9,7 +9,9 @@ const fetchAllCalls = async () => {
         const docs = await getDocs(callCollectionRef);
         let calls = [] ;
         docs.forEach((doc)=> {
-            calls.push(doc.data());
+            const call = doc.data();
+            delete call.audioDriveId;
+            calls.push(call);
         })
         console.log("All calls fetched successfully");
         return calls;

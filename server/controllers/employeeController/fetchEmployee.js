@@ -1,9 +1,9 @@
 import { doc, getDoc } from "firebase/firestore";
 import bucket from "../../configs/fireStorageConfig.js";
-import { firestore } from "../../configs/firestoreConfig.js";
+import { firestoreDB } from "../../configs/firestoreConfig.js";
 
 const fetchEmployee = async (id) => {
-    const employeeRef = doc(firestore, "employeeData", id);
+    const employeeRef = doc(firestoreDB, "employeeData", id);
 
     try {
         const doc = await getDoc(employeeRef);

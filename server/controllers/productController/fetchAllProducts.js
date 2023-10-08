@@ -1,10 +1,10 @@
 import { collection, getDocs } from "firebase/firestore";
-import { firestore } from "../../configs/firestoreConfig.js";
+import { firestoreDB } from "../../configs/firestoreConfig.js";
 import bucket from "../../configs/fireStorageConfig.js";
 
 
 const fetchAllProduct = async () => {
-    const collectionRef = collection(firestore, "productData");
+    const collectionRef = collection(firestoreDB, "productData");
     
     try {
         const snapshot = await getDocs(collectionRef);

@@ -7,14 +7,15 @@ app = Flask(__name__)
 @app.route("/api/upload",methods=['POST'])
 def upload():
     if request.is_json:
-        json_data = request.get_json()
+        call_data = request.get_json()
 
-        if "audio" in json_data:
-            callId = json_data["callId"]
-            audio = json_data["audio"]
+        if "callFile" in call_data:
+            callId = call_data["callId"]
+            audio = call_data["callFile"]
             audio_buffer = audio["data"]
             buffer_to_audio(audio_buffer, callId)
-            return "Audio received successfully"
+            #call function to initiate model on audio file
+            return "Audio received successfully by model"
         else:
             return "Couldn't find audio file in request"
     else:

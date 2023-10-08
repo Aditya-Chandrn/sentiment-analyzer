@@ -1,9 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
-import { firestore } from "../../configs/firestoreConfig.js";
+import { firestoreDB } from "../../configs/firestoreConfig.js";
 
 
 const fetchAllCalls = async () => {
-    const callCollectionRef = collection(firestore, "callData");
+    const callCollectionRef = collection(firestoreDB, "callData");
 
     try {
         const docs = await getDocs(callCollectionRef);

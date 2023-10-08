@@ -11,8 +11,9 @@ const upload = multer();
 router.post("/create", upload.single('callFile'), (req,res) => {
     res.header("Content-Type","multipart/form-data");
     const callFile = req.file.buffer;
-    const {empId, prodId, createdDate, createdTime} = req.body;
-    createCall(callFile, empId, prodId, createdDate, createdTime);
+    const callData = req.body;
+    callData.callFile = callFile;
+    createCall(callData);
 })
 
 router.get("/fetch/:id", async (req,res) => {

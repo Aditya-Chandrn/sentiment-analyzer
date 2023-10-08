@@ -1,9 +1,9 @@
 import { doc, getDoc } from "firebase/firestore";
-import { firestore } from "../../configs/firestoreConfig.js";
+import { firestoreDB } from "../../configs/firestoreConfig.js";
 import { driveService } from "../../configs/googleDriveConfig.js";
 
 const fetchCall = async (id) => {
-    const callRef = doc(firestore, "callData", id);
+    const callRef = doc(firestoreDB, "callData", id);
 
     try {
         const doc = await getDoc(callRef);

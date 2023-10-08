@@ -3,14 +3,12 @@ import { config } from "dotenv";
 import { Readable } from "stream";
 import axios from "axios";
 
-import { firestore } from "../../configs/firestoreConfig.js";
+import { firestoreDB } from "../../configs/firestoreConfig.js";
 import { driveService } from "../../configs/googleDriveConfig.js";
 
-const postCallToModel = async (callId, audioBuffer) => {
-    const callData = {
-        callId : callId,
-        audio : audioBuffer
-    }
+const postCallToModel = async (callId, callDataToModel) => {
+    callDataToModel.callId = callId;
+    const callData = callDataToModel;
 
     try{
         const response = await axios.post("http://127.0.0.1:8000/api/upload", callData);
@@ -20,27 +18,25 @@ const postCallToModel = async (callId, audioBuffer) => {
     }
 }
 
-const createCall = async (callFile, empId, prodId, createdDate, createdTime) => {
+const createCall = async (callData) => {
     console.log("received call")
-    const new_id = "banana";
-    postCallToModel(new_id, callFile);
-    return;
+    const {empId, prodId, createdDate, createdTime,callFile} = callData;
     const id = await checkProceed(empId, prodId, createdTime, createdDate);
     if(!id){
         console.log("------ CALLS CHECKS FAILED -------");
         return;
     }
     console.log("------ CALLS CHECKS PASSED -------");
-
     
-
+    postCallToModel(id, callData);
+    
     const fileName = `${id}.audio`;
     const audioDriveId = await uploadCallAudio(fileName, callFile);
     console.log(audioDriveId);
 
     try{
         const newCall = { callId: id, empId, prodId, createdDate, createdTime, audioDriveId: audioDriveId };
-        await setDoc(doc(firestore, "callData", id), newCall);
+        await setDoc(doc(firestoreDB, "callData", id), newCall);
         console.log("New call added to database.");
     } catch(error) {
         console.log("Error adding new call to database : ",error.message);
@@ -81,7 +77,7 @@ const uploadCallAudio = async (fileName, callFile) => {
 }
 
 const checkExist = async (id, col) => {
-    const docRef = doc(firestore, col, id);
+    const docRef = doc(firestoreDB, col, id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) return true;
     return false;
@@ -107,7 +103,7 @@ const checkProceed = async (empId, prodId, createdTime, createdDate)=> {
         return;
     }
 
-    const callRef = collection(firestore, "callData");
+    const callRef = collection(firestoreDB, "callData");
     const callQuery = query(callRef, where("empId", "==", empId));
 
     const docs = await getDocs(callQuery);

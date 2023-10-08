@@ -1,9 +1,9 @@
 import { doc, getDoc } from "firebase/firestore";
 import bucket from "../../configs/fireStorageConfig.js";
-import { firestore } from "../../configs/firestoreConfig.js";
+import { firestoreDB } from "../../configs/firestoreConfig.js";
 
 const fetchProduct = async (id) => {
-    const productRef = doc(firestore, "productData", id);
+    const productRef = doc(firestoreDB, "productData", id);
 
     try {
         const doc = await getDoc(productRef);

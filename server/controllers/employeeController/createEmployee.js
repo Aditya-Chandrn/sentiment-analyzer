@@ -1,6 +1,6 @@
 import { doc, setDoc } from "firebase/firestore";
 import bucket from "../../configs/fireStorageConfig.js";
-import { firestore } from "../../configs/firestoreConfig.js";
+import { firestoreDB } from "../../configs/firestoreConfig.js";
 
 const createEmployee = (image, fname, lname, joined, type) => {
     const imageBuffer = Buffer.from(image);
@@ -22,7 +22,7 @@ const createEmployee = (image, fname, lname, joined, type) => {
 
     writeStream.on('finish', async ()=> {
         const newEmployee = {id, fname, lname, joined, type, image : fileName};
-        await setDoc(doc(firestore, "employeeData", id), newEmployee);
+        await setDoc(doc(firestoreDB, "employeeData", id), newEmployee);
 
         console.log("File uploaded succesfully.");
     })

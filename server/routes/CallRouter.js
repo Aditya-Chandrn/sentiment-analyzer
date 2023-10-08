@@ -8,11 +8,24 @@ import fetchAllCalls from "../controllers/callController/fetchAllCalls.js";
 const router = Router();
 const upload = multer();
 
-router.post("/create", upload.single('callFile'), (req,res) => {
+const uploadMiddleWare = upload.fields([
+    {
+        name: "empAudioFile",
+        maxCount: 1
+    },
+    {
+        name: "customerAudioFile",
+        maxCount: 1
+    }
+]);
+
+router.post("/create", uploadMiddleWare, (req,res) => {
     res.header("Content-Type","multipart/form-data");
-    const callFile = req.file.buffer;
+    const empAudioFile = req.files["empAudioFile"][0].buffer;
+    const customerAudioFile = req.files["customerAudioFile"][0].buffer;
     const callData = req.body;
-    callData.callFile = callFile;
+    callData.empAudioFile = empAudioFile;
+    callData.customerAudioFile = customerAudioFile;
     createCall(callData);
 })
 

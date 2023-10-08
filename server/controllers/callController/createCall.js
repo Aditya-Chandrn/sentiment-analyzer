@@ -1,17 +1,15 @@
 import { collection, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore";
-import { config } from "dotenv";
-import { Readable } from "stream";
 import axios from "axios";
 
 import { firestoreDB } from "../../configs/firestoreConfig.js";
-import { driveService } from "../../configs/googleDriveConfig.js";
+import uploadAudioToDrive from "../../utils/uploadToDrive.js";
+
 
 const postCallToModel = async (callId, callDataToModel) => {
     callDataToModel.callId = callId;
-    const callData = callDataToModel;
 
     try{
-        const response = await axios.post("http://127.0.0.1:8000/api/upload", callData);
+        const response = await axios.post("http://127.0.0.1:8000/api/upload", callDataToModel);
         console.log(response.data);
     } catch (error) {
         console.log("Not able to post call to model : ",error.message);
@@ -20,7 +18,8 @@ const postCallToModel = async (callId, callDataToModel) => {
 
 const createCall = async (callData) => {
     console.log("received call")
-    const {empId, prodId, createdDate, createdTime,callFile} = callData;
+
+    const {empId, prodId, createdDate, createdTime, empAudioFile, customerAudioFile} = callData;
     const id = await checkProceed(empId, prodId, createdTime, createdDate);
     if(!id){
         console.log("------ CALLS CHECKS FAILED -------");
@@ -28,51 +27,19 @@ const createCall = async (callData) => {
     }
     console.log("------ CALLS CHECKS PASSED -------");
     
-    postCallToModel(id, callData);
+    await postCallToModel(id, callData);
     
-    const fileName = `${id}.audio`;
-    const audioDriveId = await uploadCallAudio(fileName, callFile);
-    console.log(audioDriveId);
+    const {empAudioDriveId, customerAudioDriveId} = await uploadAudioToDrive(id, empAudioFile, customerAudioFile);
+    const audioDriveIds = {empAudioDriveId, customerAudioDriveId};
+    console.log(audioDriveIds);
+    // return;
 
     try{
-        const newCall = { callId: id, empId, prodId, createdDate, createdTime, audioDriveId: audioDriveId };
+        const newCall = { callId: id, empId, prodId, createdDate, createdTime, audioDriveIds};
         await setDoc(doc(firestoreDB, "callData", id), newCall);
         console.log("New call added to database.");
     } catch(error) {
         console.log("Error adding new call to database : ",error.message);
-    }
-}
-
-config();
-const DRIVE_FOLDER_ID = process.env.DRIVE_FOLDER_ID;
-
-const uploadCallAudio = async (fileName, callFile) => {
-    let file;
-    const audioMetaData = {
-        name: fileName,
-        parents: [DRIVE_FOLDER_ID]        
-    };
-
-    const fileBuffer = Buffer.from(callFile);
-    const audioStream = new Readable();
-    audioStream.push(fileBuffer);
-    audioStream.push(null);
-    
-    const audio = {
-        mimeType: "audio/wav",
-        body: audioStream
-    };
-
-    try {
-        file = await driveService.files.create({
-            resource: audioMetaData,
-            media : audio,
-            fields: "id"
-        });
-        console.log("Audio uploaded successfully in Drive. File ID : ", file.data);
-        return file.data.id;
-    } catch (error) {
-        console.log("Error uploading audio : ",error.message);
     }
 }
 

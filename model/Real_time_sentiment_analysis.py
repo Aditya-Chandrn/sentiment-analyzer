@@ -1,3 +1,5 @@
+from send_result import send_data
+
 def model(call_data):
     from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
     import speech_recognition as sr
@@ -83,13 +85,7 @@ def model(call_data):
     call_data["performance"]=score
     call_data["blackListed"]=found_words
 
-    return call_data
-
-
-   
-
-
-
+    send_data(call_data)
 
 
 def splt_audio(pth,a):

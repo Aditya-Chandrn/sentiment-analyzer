@@ -27,7 +27,8 @@ const makeTime = () => {
 
 
 const CreateCall = () => {
-    const [callFile, setCallFile] = useState(null);
+    const [empAudioFile, setEmpAudioFile] = useState(null);
+    const [customerAudioFile, setCustomerAudioFile] = useState(null);
     const [empId, setEmpId] = useState();
     const [prodId, setProdId] = useState();
     const [createdTime, setCreatedTime] = useState(makeTime);
@@ -37,7 +38,7 @@ const CreateCall = () => {
         e.preventDefault();
         let [newDate, newTime] = e.target.value.split("T");
 
-        newDate = newDate.split("-").join("");
+        newDate = newDate.split("-").join("-");
         const [hour,min,sec] = newTime.split(":");
         newTime =  hour*60*60 + min*60 + (sec ? sec*1 : 0);
         setCreatedDate(newDate);
@@ -48,19 +49,20 @@ const CreateCall = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(!callFile){
+        if(!empAudioFile || !customerAudioFile){
             alert("Select a file");
             return;
         }
 
         const formData = new FormData();
-        formData.append("callFile",callFile);
+        formData.append("empAudioFile",empAudioFile);
+        formData.append("customerAudioFile",customerAudioFile);
         formData.append("empId",empId);
         formData.append("prodId",prodId);
-        formData.append('createdDate',createdDate);
-        formData.append('createdTime',createdTime);
+        formData.append("createdDate",createdDate);
+        formData.append("createdTime",createdTime);
 
-        console.log(`${createdDate}     ${createdTime}`)
+        console.log(formData);
 
         const url = "http://localhost:5000/api/call/create";
 
@@ -77,7 +79,8 @@ const CreateCall = () => {
 
     return (
         <form className={styles.upload} onSubmit={handleSubmit}>
-            <input type='file' name="callFile" onChange={e => setCallFile(e.target.files[0])}/>
+            Employee<input type='file' name="empAudioFile" onChange={e => setEmpAudioFile(e.target.files[0])}/>
+            Customer <input type='file' name="customerAudioFile" onChange={e => setCustomerAudioFile(e.target.files[0])}/>
             Emp ID<input type='text' name="empId" onChange={e => setEmpId(e.target.value)}/>
             Prod ID <input type='text' name="prodId" onChange={e => setProdId(e.target.value)}/>
             Date Time

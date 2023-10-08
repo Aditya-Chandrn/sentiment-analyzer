@@ -13,10 +13,13 @@ const fetchCall = async (id) => {
         }
 
         let callData = doc.data();
-        const audio = await getAudio(callData);
+        const empAudio = await getAudio(callData.audioDriveIds.empAudioDriveId);
+        const customerAudio = await getAudio(callData.audioDriveIds.customerAudioDriveId);
         
-        callData.audio = audio;
-        delete callData.audioDriveId;
+        callData.empAudio = empAudio;
+        callData.customerAudio = customerAudio;
+        delete callData.audioDriveIds;
+
         console.log(`Call data with id - ${id} - fetched successfully`);
         return callData;
     }
@@ -25,8 +28,7 @@ const fetchCall = async (id) => {
     }
 };
 
-const getAudio = async (callData) => {
-    const audioDriveId = callData.audioDriveId;
+const getAudio = async (audioDriveId) => {
     const file = await driveService.files.get({
             fileId: audioDriveId,
             alt: "media"

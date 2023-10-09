@@ -19,12 +19,12 @@ const calculateEmpPerformance = (empId, performance) => {
         empGraphData[i].y = currentAverage;
     }
 
-    empGraphData = {
-        id: empId,
-        color: "hsl(264,70%,50%)",
-        data: empGraphData
-    };
-    empGraphData = JSON.stringify(empGraphData, null, 2);
+    empGraphData = [{
+            id: empId,
+            color: "hsl(264,70%,50%)",
+            data: empGraphData
+        }
+    ];
     return empGraphData;
 }
 //---------------------- PRODUCT PERFORMANCE -----------------------
@@ -47,12 +47,12 @@ const calculateProdPerformance = (prodId, performance) => {
         prodGraphData[i].y = currentAverage;
     }
 
-    prodGraphData = {
+    prodGraphData = [{
         id: prodId,
         color: "hsl(264,70%,50%)",
         data: prodGraphData
-    };
-    prodGraphData = JSON.stringify(prodGraphData, null, 2);
+    }
+];
     return prodGraphData;
 }
 

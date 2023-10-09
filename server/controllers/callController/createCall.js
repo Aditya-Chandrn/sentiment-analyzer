@@ -27,7 +27,7 @@ const createCall = async (callData) => {
     }
     console.log("------ CALLS CHECKS PASSED -------");
     
-    await postCallToModel(id, callData);
+    postCallToModel(id, callData);
     
     const {empAudioDriveId, customerAudioDriveId} = await uploadAudioToDrive(id, empAudioFile, customerAudioFile);
     const audioDriveIds = {empAudioDriveId, customerAudioDriveId};

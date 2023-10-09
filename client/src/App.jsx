@@ -13,6 +13,7 @@ import CreateEmployee from 'createData/createEmployee/createEmployee';
 import CreateProduct from 'createData/createProduct/createProduct';
 import CreateCall from 'createData/createCall/createCall';
 import Test from 'test';
+import Test_new from 'test_new';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/test' element={<Test/>}/>
+        <Route path='/new' element={<Test_new/>}/>
         <Route path='/employee/create' element={<CreateEmployee/>}/>
         <Route path='/product/create' element={<CreateProduct/>}/>
         <Route path='/call/create' element={<CreateCall/>}/>

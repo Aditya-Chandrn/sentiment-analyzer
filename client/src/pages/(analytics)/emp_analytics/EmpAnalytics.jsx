@@ -4,6 +4,8 @@ import styles from "./product.module.css";
 import SearchIcon from "assets/search.png";
 import axios from 'axios';
 
+import LineChart from 'components/charts and tables/LineChart';
+
 // import Cards from 'components/cards/Cards.jsx';
 import ManyEmployees from 'components/employeeFetch/ManyEmployees';
 
@@ -138,6 +140,7 @@ const EmployeeAnalytics = () => {
 {/* Employee Analytics */}
         <div class='new'>
           <h2>Graphs</h2>
+          <LineChart/>
         </div>
       </div>
     </div>

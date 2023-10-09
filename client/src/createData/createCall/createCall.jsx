@@ -38,9 +38,6 @@ const CreateCall = () => {
         e.preventDefault();
         let [newDate, newTime] = e.target.value.split("T");
 
-        newDate = newDate.split("-").join("-");
-        const [hour,min,sec] = newTime.split(":");
-        newTime =  hour*60*60 + min*60 + (sec ? sec*1 : 0);
         setCreatedDate(newDate);
         setCreatedTime(newTime);
     }
@@ -48,6 +45,7 @@ const CreateCall = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(createdDate, createdTime);
 
         if(!empAudioFile || !customerAudioFile){
             alert("Select a file");

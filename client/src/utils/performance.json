@@ -1,0 +1,59 @@
+[
+  {
+    "2023-10-09" :{
+      "averageRating": 3,
+      "blackListed": ["frustrated", "confused", "overwhelmed"]
+    }
+  },
+  {
+    "2023-10-03": {
+      "averageRating": 1,
+      "blackListed": ["frustrating", "disappointing", "inconvenient"]
+    }
+  },
+  {
+    "2023-10-06": {
+      "averageRating": 4,
+      "blackListed": ["challenging", "difficult", "stressful"]
+    }
+  },
+  {
+    "2023-10-05": {
+      "averageRating": 2,
+      "blackListed": ["complicated", "demanding", "displeased"]
+    }
+  },
+  {
+    "2023-10-04": {
+      "averageRating": 5,
+      "blackListed": ["annoying", "irritating", "unpleasant"]
+    }
+  },
+  
+  
+  {
+    "2023-09-27": {
+      "averageRating": 2,
+      "blackListed": ["confusing", "tiresome", "irksome"]
+    }
+  },
+  {
+    "2023-09-26": {
+      "averageRating": 5,
+      "blackListed": ["disconcerting", "perplexing", "troublesome"]
+    }
+  },
+  {
+    "2023-09-25": {
+      "averageRating": 1,
+      "blackListed": ["aggravating", "exasperating", "problematic"]
+    } 
+  },
+  {
+    "2023-09-28": {
+      "averageRating": 3,
+      "blackListed": ["stressful", "annoying", "bothersome"]
+    }
+  }
+]
+  

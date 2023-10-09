@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Graph = () => {
+const EmployeeGraph = () => {
+  
+  const [graphData, setGraphData] = useState({})
   return (
     <div>Graph</div>
   )
 }
 
-export default Graph;
+const ProductGraph = () => {
+
+  return (
+    <div>Graph</div>
+  )
+}
+
+export {EmployeeGraph, ProductGraph};

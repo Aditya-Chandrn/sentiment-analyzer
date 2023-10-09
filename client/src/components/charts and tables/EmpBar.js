@@ -72,7 +72,7 @@ const EmpChart = ({data}) => {
         indexBy="empid"
         margin={{ top: 35, right: 100, bottom: 75, left: 60 }}
         padding={0.3}
-        layout="horizontal"
+        layout="vertical"
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
         colors={['green','yellow','red']}

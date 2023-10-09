@@ -3,6 +3,7 @@ import './EmpAnalytics.css';
 import styles from "./product.module.css";
 import SearchIcon from "assets/search.png";
 import axios from 'axios';
+import LineChart from 'components/charts and tables/LineChart';
 
 import LineChart from 'components/charts and tables/LineChart';
 

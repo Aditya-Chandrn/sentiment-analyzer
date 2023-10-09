@@ -1,0 +1,30 @@
+
+const Dashboard = () => {
+  return (
+    <div className={styles.App}>
+      
+      <div> {/*${styles.panel1} */}
+        <CallsTable data={data1}/>
+      </div>
+      <div>
+        <div className={styles.heading}>Customer Calls Sentiment</div>
+        <PieChart data={data2}/>
+      </div>
+      <div>
+      <div className={styles.heading}>Employee Performance</div>
+        <EmpChart data={data3}/>
+      </div>
+      <div>
+        {/* <CallsTable data={data1}/> */}
+      </div>
+      <div>
+        {/* <div className={styles.heading}>Product Sentiment</div>
+        <PieChart data={data2}/> */}
+      </div>
+      <div>
+      <div className={styles.heading}>Employee Performance</div>
+        <EmpChart data={data3}/>
+      </div>
+    </div>
+  );
+}

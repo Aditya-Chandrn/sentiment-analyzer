@@ -1,0 +1,113 @@
+/* .App {
+  display: grid; 
+  grid-template-rows: 1fr 1fr; 
+  grid-template-columns: 2.5fr 2.5fr 3fr; 
+  height: 100vh; 
+  width: 100vw; 
+  gap: 0; 
+  overflow: hidden;
+}
+
+.panel {
+  border: 2px solid black;
+  overflow: auto; 
+  background-color: white;
+  height: 100%; 
+  width: 100%; 
+}
+
+.panel1, .panel2, .panel3 {
+  grid-row: 1;
+}
+
+.panel2, .panel3, .panel5, .panel6 {
+  overflow: hidden;
+}
+
+.panel4, .panel5, .panel6 {
+  grid-row: 2; 
+}
+
+.sidebar {
+  position: fixed; 
+  
+}
+
+.heading {
+  text-align: center;
+  font-size: large;
+  padding-top: 2px;
+} */
+/* .container1{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 10px;
+  margin-left: 10px;
+  background: white;
+  padding-bottom: 30px;
+  width: 30vw;
+  height: 45vh;
+  border-radius: 15px;
+  border: 2px solid black;
+}
+
+.container2{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 10px;
+  margin-left: 10px;
+  background: white;
+  padding-bottom: 30px;
+  width: 30vw;
+  height: 45vh;
+  border-radius: 15px;
+  border: 2px solid black;
+} */
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  margin: 10px;
+  width: 94vw;
+  height: 97vh;
+}
+
+.pie-container {
+  overflow: hidden;
+}
+
+.container {
+  border: 1px solid #ccc;
+  max-height: 48vh;
+}
+
+.big-container {
+  grid-column: span 3;
+  border: 1px solid #ccc;
+  height: 48vh;
+}
+
+.stat-container{
+  padding: 10px;
+  border: none;
+}
+
+.top-stat{
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  height: 10vh;
+}
+
+.bottom-stat{
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  height: 10vh;
+}

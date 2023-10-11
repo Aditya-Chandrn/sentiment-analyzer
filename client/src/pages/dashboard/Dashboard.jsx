@@ -11,26 +11,26 @@ const Dashboard = () =>{
 
   return(
     
-    <div class="dashboard">
+    <div className="dashboard">
 
-      <div class="container">
+      <div className="container">
 
       </div>
 
-      <div class="container pie-container">
+      <div className="container pie-container">
         <PieChart data={data2}/>
       </div>
 
-      <div class="container stat-container">
-        <div class="top-stat">
+      <div className="container stat-container">
+        <div className="top-stat">
           hello
         </div>
-        <div class="bottom-stat">
+        <div className="bottom-stat">
           hello
         </div>
       </div>
 
-      <div class="big-container">
+      <div className="big-container">
         <EmpChart data={data3}/>
       </div>
 

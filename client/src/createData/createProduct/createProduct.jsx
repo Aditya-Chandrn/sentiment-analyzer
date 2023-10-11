@@ -11,7 +11,7 @@ const makeDate = () => {
     if(date<10) date="0"+date;
     if(month<10) month="0"+month;
     
-    const fullDate = year+month+date;
+    const fullDate = `${year}-${month}-${date}`;
     return fullDate;
 }
 
@@ -24,8 +24,7 @@ const CreateProduct = () => {
 
     const changeDate = (e) => {
         e.preventDefault();
-        const newCreatedAt = e.target.value.split("-").join("");
-        setCreatedAt(newCreatedAt);
+        setCreatedAt(e.target.value);
     }
 
     const handleSubmit = (e) => {
@@ -59,14 +58,14 @@ const CreateProduct = () => {
 
     return (
         <form className={styles.upload} onSubmit={handleSubmit}>
-            <input type='file' name="image" onChange={e => setSelectedFile(e.target.files[0])}/>
-            <input type='text' name="prodName" onChange={e => setFname(e.target.value)}/>
-            <select type='dropdown' name="prodNo" onChange={e => setProdNo(e.target.value)}>
+            Image <input type='file' name="image" onChange={e => setSelectedFile(e.target.files[0])}/>
+            Product Name <input type='text' name="prodName" onChange={e => setFname(e.target.value)}/>
+            Product No <select type='dropdown' name="prodNo" onChange={e => setProdNo(e.target.value)}>
                 <option value={0}>0</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
             </select>
-            <input type='date' name="createdAt" onChange={e => changeDate(e)}/>
+            Created On<input type='date' name="createdAt" onChange={e => changeDate(e)}/>
             <button type='submit'>Upload</button>
         </form>
     )

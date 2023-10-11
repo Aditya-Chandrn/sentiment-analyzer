@@ -19,6 +19,7 @@ const fetchAllEmployees = async () => {
 
         // Wait for all image promises to resolve
         employees = await Promise.all(imagePromises);
+        console.log("All employee data sent.");
         return employees;
     } catch (error) {
         console.error('ERROR:', error.message);

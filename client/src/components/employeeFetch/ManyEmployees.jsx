@@ -13,6 +13,7 @@ const ManyEmployees = ({ employees , setGraphData}) => {
 		selectedCard === index ? setSelectedCard(null) : setSelectedCard(index)
 
 		const graphData = calculateEmpPerformance(employee.id, employee.performance);
+		console.log(graphData)
 		setGraphData(graphData)
 	}
 

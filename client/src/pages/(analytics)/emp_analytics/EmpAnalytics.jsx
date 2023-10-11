@@ -11,10 +11,11 @@ import axios from 'axios';
 const EmployeeAnalytics = () => {
 	const [search, setSearch] = useState("");
 	const [employees, setEmployees] = useState([]);
-	const [graphData, setGraphData] = useState([{}]);
+	const [graphData, setGraphData] = useState();
 
 	const fetchAllEmployees = async () => {
 		try {
+			// return
 			const response = await axios.get("http://localhost:5000/api/employee/fetch");
 			const allEmp = response.data;
 			allEmp.forEach((emp) => {
@@ -58,7 +59,8 @@ const EmployeeAnalytics = () => {
 
 				{/*-------------------- EMPLOYEE ANALYTICS ------------------ */}
 				<div className='new'>
-					<LineChart data = {graphData}/>
+					{console.log(graphData)}
+					{graphData ? <LineChart data = {graphData}/> : <></>}
 				</div>
 			</div>
 		</div>

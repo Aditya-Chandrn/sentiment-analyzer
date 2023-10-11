@@ -7,8 +7,8 @@ config();
 const DRIVE_FOLDER_ID = process.env.DRIVE_FOLDER_ID;
 
 const uploadAudioToDrive = async (callId, empAudioFile, customerAudioFile) => {
-    const empFileName = "EMP.audio.wav"
-    const customerFileName = "CT.audio.wav"
+    const empFileName = `${callId}.EMP.audio.wav`
+    const customerFileName = `${callId}.CT.audio.wav`
 
     const folderId = await createFolder(callId);
     const empAudioDriveId = await uploadAudioFile(folderId, empFileName, empAudioFile);

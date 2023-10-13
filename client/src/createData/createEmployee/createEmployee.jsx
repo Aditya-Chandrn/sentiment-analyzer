@@ -11,7 +11,7 @@ const makeDate = () => {
     if(date<10) date="0"+date;
     if(month<10) month="0"+month;
     
-    const fullDate = year+month+date;
+    const fullDate = `${year}-${month}-${date}`;
     return fullDate;
 }
 
@@ -25,8 +25,7 @@ const CreateEmployee = () => {
 
     const changeDate = (e) => {
         e.preventDefault();
-        const newJoined = e.target.value.split("-").join("");
-        setJoined(newJoined);
+        setJoined(e.target.value);
     }
 
     const handleSubmit = (e) => {
@@ -61,15 +60,15 @@ const CreateEmployee = () => {
 
     return (
         <form className={styles.upload} onSubmit={handleSubmit}>
-            <input type='file' name="image" onChange={e => setSelectedFile(e.target.files[0])}/>
-            <input type='text' name="fname" onChange={e => setFname(e.target.value)}/>
-            <input type='text' name="lname" onChange={e => setLname(e.target.value)}/>
-            <select type='dropdown' name="type" onChange={e => setType(e.target.value)}>
+            Image <input type='file' name="image" onChange={e => setSelectedFile(e.target.files[0])}/>
+            First Name <input type='text' name="fname" onChange={e => setFname(e.target.value)}/>
+            Last Name <input type='text' name="lname" onChange={e => setLname(e.target.value)}/>
+            Type <select type='dropdown' name="type" onChange={e => setType(e.target.value)}>
                 <option value={0} selected>0</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
             </select>
-            <input type='date' name="joined" onChange={e => changeDate(e)}/>
+            Joined on <input type='date' name="joined" onChange={e => changeDate(e)}/>
             <button type='submit'>Upload</button>
         </form>
     )

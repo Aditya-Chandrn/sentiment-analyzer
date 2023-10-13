@@ -7,7 +7,7 @@ import data1 from './../../pages/dashboard/CallsTableData.json';
 import data2 from './../../pages/dashboard/PieChartData.json'
 import data3 from './../../pages/dashboard/EmpBarData.json'
 
-const Dashboard = () =>{
+const Dashboard = (props) =>{
 
   return(
     
@@ -23,7 +23,7 @@ const Dashboard = () =>{
 
       <div class="container stat-container">
         <div class="top-stat">
-          hello
+          <label class='count'>1760</label>
         </div>
         <div class="bottom-stat">
           hello

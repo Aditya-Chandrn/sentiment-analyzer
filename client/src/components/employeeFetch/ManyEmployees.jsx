@@ -35,7 +35,7 @@ const ManyEmployees = () => {
           emp.image = image;
         });
         setEmployees(allEmp);
-        console.log(employees);
+        // console.log(employees);
       })
       .catch((error) =>
         console.log("Error fetching all employees : ", error.message)
@@ -44,7 +44,7 @@ const ManyEmployees = () => {
 
   useEffect(() => {
     fetchAllEmployees();
-  });
+  },[]);
 
   return (
     <div>

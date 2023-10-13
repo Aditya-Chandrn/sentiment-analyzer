@@ -1,6 +1,5 @@
 import React from 'react'
 import "./Cards.css";
-import img from "../../assets/01.jpg"
 
 const CardsP = (props) => {
     return (
@@ -9,7 +8,7 @@ const CardsP = (props) => {
             <div className='flex'>
             {/* Image */}
             <div class={props.cardMin ? 'empImage' : props.active? 'empImageOpen': 'empImageSmall'}>
-                <img src= {img} alt=""/> {/*props.image*/}
+                <img src= {props.image} alt=""/> {/*props.image*/}
             </div>
             {/* Details */}
             <div class={props.cardMin ? 'empName' : props.active? 'empNameOpen': 'empNameSmall'}>

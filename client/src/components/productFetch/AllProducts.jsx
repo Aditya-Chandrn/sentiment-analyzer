@@ -43,7 +43,7 @@ const AllProducts = () => {
   
     useEffect(() => {
       fetchAllProducts();
-    });
+    },[]);
   
     return (
       <div>

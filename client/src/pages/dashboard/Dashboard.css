@@ -102,12 +102,20 @@
 
 .top-stat{
   border: 1px solid #ccc;
-  margin-bottom: 10px;
-  height: 10vh;
+  margin-top: 3.2vh;
+  position: relative;
+  height: 20vh;
 }
 
 .bottom-stat{
   border: 1px solid #ccc;
-  margin-top: 10px;
-  height: 10vh;
+  margin-top: 3vh;
+  height: 20vh;
+}
+
+.count{
+  position: absolute;
+  top: 3vh;
+  left: 3vw;
+  font-size: 6vh;
 }

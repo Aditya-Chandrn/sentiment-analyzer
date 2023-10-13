@@ -13,8 +13,9 @@ const fetchAllProduct = async () => {
         const imagePromises = snapshot.docs.map(async (doc) => {
             const productData = doc.data();
             const id = doc.id;
-            // const image = await getImage(id);
-            return { ...productData }; //image  
+            const image = await getImage(id);
+            console.log("prodSuccess");
+            return { ...productData, image }; //image  
         });
 
         // Wait for all image promises to resolve

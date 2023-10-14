@@ -6,7 +6,7 @@ const PieChart = ({data}) => {
     return (
     <ResponsivePie
         data={data}
-        margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
+        margin={{ top: 10, right: 60, bottom: 40, left: 85 }}
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}
@@ -82,9 +82,9 @@ const PieChart = ({data}) => {
                 anchor: 'bottom',
                 direction: 'row',
                 justify: false,
-                translateX: 0,
-                translateY: 37,
-                itemsSpacing: 0,
+                translateX: 20,
+                translateY: 30,
+                itemsSpacing: -20,
                 itemWidth: 100,
                 itemHeight: 18,
                 itemTextColor: '#999',

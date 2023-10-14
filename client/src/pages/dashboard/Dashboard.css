@@ -74,14 +74,15 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
-  grid-gap: 10px;
-  margin: 10px;
-  width: 94vw;
-  height: 97vh;
+  grid-gap: 20px;
+  margin: 20px;
+  width: 92vw;
+  height: 95vh;
 }
 
 .pie-container {
-  overflow: hidden;
+  width: 20vw;
+  height: 43.6vh;
 }
 
 .container {
@@ -96,18 +97,16 @@
 }
 
 .stat-container{
-  padding: 10px;
   border: none;
 }
 
 .top-stat{
   border: 1px solid #ccc;
-  margin-bottom: 10px;
-  height: 10vh;
+  height: 20vh;
+  margin-bottom: 27px;
 }
 
 .bottom-stat{
   border: 1px solid #ccc;
-  margin-top: 10px;
-  height: 10vh;
+  height: 20vh;
 }

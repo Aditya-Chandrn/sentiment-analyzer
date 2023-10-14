@@ -11,17 +11,21 @@ const makeDate = () => {
     if(date<10) date="0"+date;
     if(month<10) month="0"+month;
     
-    const fullDate = year+month+date;
+    const fullDate = `${year}-${month}-${date}`;
     return fullDate;
 }
 
 const makeTime = () => {
     const time = new Date();
-    const seconds = time.getSeconds();
-    const minutes = time.getMinutes();
-    const hours = time.getHours();
+    let seconds = time.getSeconds();
+    let minutes = time.getMinutes();
+    let hours = time.getHours();
 
-    const fullTime = hours*60*60 + minutes*60 + seconds;
+    if(hours<10) hours="0"+hours;
+    if(minutes<10) minutes="0"+minutes;
+    if(seconds<10) seconds="0"+seconds;
+
+    const fullTime = `${hours}:${minutes}:${seconds}`;
     return fullTime;
 }
 
@@ -77,8 +81,8 @@ const CreateCall = () => {
 
     return (
         <form className={styles.upload} onSubmit={handleSubmit}>
-            Employee<input type='file' name="empAudioFile" onChange={e => setEmpAudioFile(e.target.files[0])}/>
-            Customer <input type='file' name="customerAudioFile" onChange={e => setCustomerAudioFile(e.target.files[0])}/>
+            Employee Audio <input type='file' name="empAudioFile" onChange={e => setEmpAudioFile(e.target.files[0])}/>
+            Customer Audio <input type='file' name="customerAudioFile" onChange={e => setCustomerAudioFile(e.target.files[0])}/>
             Emp ID<input type='text' name="empId" onChange={e => setEmpId(e.target.value)}/>
             Prod ID <input type='text' name="prodId" onChange={e => setProdId(e.target.value)}/>
             Date Time

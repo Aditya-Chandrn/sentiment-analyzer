@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, setDoc, updateDoc, where } from "firebase/firestore";
 import axios from "axios";
 
 import { firestoreDB } from "../../configs/firestoreConfig.js";
@@ -19,32 +19,34 @@ const postCallToModel = async (callId, callDataToModel) => {
 const createCall = async (callData) => {
     console.log("received call")
 
-    const {empId, prodId, createdDate, createdTime, empAudioFile, customerAudioFile} = callData;
-    const id = await checkProceed(empId, prodId, createdTime, createdDate);
-    if(!id){
+    let {empId, prodId, createdDate, createdTime, empAudioFile, customerAudioFile} = callData;
+    empId = empId.toUpperCase();
+    prodId = prodId.toUpperCase();
+    const callId = await checkProceed(empId, prodId, createdTime, createdDate);
+    if(!callId){
         console.log("------ CALLS CHECKS FAILED -------");
         return;
     }
     console.log("------ CALLS CHECKS PASSED -------");
     
-    postCallToModel(id, callData);
+    postCallToModel(callId, callData);
     
-    const {empAudioDriveId, customerAudioDriveId} = await uploadAudioToDrive(id, empAudioFile, customerAudioFile);
+    const {empAudioDriveId, customerAudioDriveId} = await uploadAudioToDrive(callId, empAudioFile, customerAudioFile);
     const audioDriveIds = {empAudioDriveId, customerAudioDriveId};
     console.log(audioDriveIds);
     // return;
 
     try{
-        const newCall = { callId: id, empId, prodId, createdDate, createdTime, audioDriveIds};
-        await setDoc(doc(firestoreDB, "callData", id), newCall);
+        const newCall = { callId: callId, empId, prodId, createdDate, createdTime, audioDriveIds};
+        await setDoc(doc(firestoreDB, "callData", callId), newCall);
         console.log("New call added to database.");
     } catch(error) {
         console.log("Error adding new call to database : ",error.message);
     }
 }
 
-const checkExist = async (id, col) => {
-    const docRef = doc(firestoreDB, col, id);
+const checkExist = async (callId, col) => {
+    const docRef = doc(firestoreDB, col, callId);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) return true;
     return false;
@@ -63,10 +65,15 @@ const checkProceed = async (empId, prodId, createdTime, createdDate)=> {
         return;
     }
 
-    const id = `call.${empId}.${prodId}.${createdDate}.${createdTime}`.toLowerCase();
-    const isCall = await checkExist(id, "callData");
+    const stateRef = doc(firestoreDB, "stateData", "Available Id");
+    const stateData = (await getDoc(stateRef)).data();
+    const callId = stateData.callId;
+    const nextCallId = "CALL-" + (parseInt(callId.slice(5,), 16)+1).toString(16).padStart(2,"0").toUpperCase();
+    await updateDoc(stateRef, {callId : nextCallId});
+
+    const isCall = await checkExist(callId, "callData");
     if (isCall) {
-        console.log(`Call with ID ${id} already exists.`);
+        console.log(`Call with ID ${callId} already exists.`);
         return;
     }
 
@@ -76,7 +83,7 @@ const checkProceed = async (empId, prodId, createdTime, createdDate)=> {
     const docs = await getDocs(callQuery);
     const current_time = createdDate + createdTime;
 
-    let result = id;
+    let result = callId;
     docs.forEach((doc)=> {
         const data = doc.data();
         const stored_time = data.createdDate + data.createdTime;

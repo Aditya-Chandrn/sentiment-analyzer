@@ -7,7 +7,6 @@ import EmployeeRouter from "./routes/employeeRouter.js";
 import CallRouter from "./routes/callRouter.js";
 import ProductRouter from "./routes/productRouter.js";
 import PerformanceRouter from "./routes/performanceRouter.js";
-import addMockData from './addMockData.js';
 
 
 //app setup

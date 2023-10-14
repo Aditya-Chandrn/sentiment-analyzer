@@ -2,13 +2,16 @@ import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore"
 import { firestoreDB } from "../configs/firestoreConfig.js";
 
 const evaluatePerformance = async (callData) => {
-    const { callId, empId, prodId, createdDate, blackListed } = callData;
+    let { callId, empId, prodId, createdDate, blackListed } = callData;
+    empId = empId.toUpperCase();
+    prodId = prodId.toUpperCase();
     let performance = callData.performance;
 
     const size = Object.keys(performance).length;
     let sum = 0;
     for (const rating of performance) sum += rating;
     const avg = Math.round(sum / size);
+    // const avg = 1;
 
     performance = performance.map((rating) => Math.round(rating))
 

@@ -33,7 +33,7 @@ const ProductAnalytics = () => {
       {/*-------------------- SEARCH BAR ------------------ */}
       <div className={styles.product}>
         <form method='POST' onSubmit={handleSubmit} className={styles.searchBar}>
-          <input className={styles.search} type='search' placeholder='Search Employee ...' value={search} onChange={handleChange} />
+          <input className={styles.search} type='search' placeholder='Search Product ...' value={search} onChange={handleChange} />
           <button className={styles.submit} type='submit'>
             <img className={styles.icon} src={SearchIcon} alt='search icon' />
           </button>

@@ -16,7 +16,7 @@ const fetchEmployee = async (id) => {
         const image = await getImage(id);
         
         data.image = image;
-        return { id, data };;
+        return { id, data };
     }
     catch(error) {
         console.log("Error fething employee : ", error.message);

@@ -4,21 +4,24 @@ import bucket from "../../configs/fireStorageConfig.js";
 
 
 const fetchAllProduct = async () => {
-    const collectionRef = collection(firestoreDB, "productData");
+    const productRef = collection(firestoreDB, "productData");
     
+    console.log("----------- FETCHING ALL PRODUCTS ----------");
+
     try {
-        const snapshot = await getDocs(collectionRef);
+        const productData = await getDocs(productRef);
         let products = [];
     
-        const imagePromises = snapshot.docs.map(async (doc) => {
-            const productData = doc.data();
+        products = await Promise.all(productData.docs.map(async (doc) => {
+            const product = doc.data();
             const id = doc.id;
-            // const image = await getImage(id);
-            return { ...productData }; //image  
-        });
+            const image = await getImage(id);
+            product.image = image;
+            return {...product}
+        }));
 
-        // Wait for all image promises to resolve
-        products = await Promise.all(imagePromises);
+        console.log("Fetched data of all products.");
+
         return products;
     } catch (error) {
         console.error('ERROR:', error.message);

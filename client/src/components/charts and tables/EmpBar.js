@@ -58,117 +58,182 @@
 
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar'
+import { ResponsiveLine } from '@nivo/line';
 
-const EmpChart = ({data}) => {
-
+const lineData = [
+    { "2023-10-15": 8 },
+    { "2023-10-14": 9 }
+]
+const EmpChart = ({ data }) => {
+    const red = "hsl(4, 82%, 56%)";
+    const orange = "hsl(27, 87%, 49%)";
+    const yellow = "hsl(53, 87%, 49%)";
+    const grey = "hsl(191, 0%, 74%)";
+    const blue = "hsl(191, 100%, 50%)";
+    const green = "hsl(105, 74%, 49%)";
+  
+    const colors = [red, orange, yellow, grey, blue, green];
+  
+    const barData = [
+      {
+        date: "2023-10-12",
+        "Disgusted": 1,
+        "Angry": 0,
+        "Unsatisfied": 3,
+        "Neutral": 4,
+        "Satisfied": 1,
+        "Happy": 0
+      },
+      {
+        date: "2023-10-13",
+        "Disgusted": 0,
+        "Angry": 0,
+        "Unsatisfied": 0,
+        "Neutral": 0,
+        "Satisfied": 0,
+        "Happy": 0
+      },
+      {
+        date: "2023-10-14",
+        "Disgusted": 0,
+        "Angry": 0,
+        "Unsatisfied": 0,
+        "Neutral": 0,
+        "Satisfied": 0,
+        "Happy": 0
+      },
+      {
+        date: "2023-10-15",
+        "Disgusted": 0,
+        "Angry": 1,
+        "Unsatisfied": 2,
+        "Neutral": 0,
+        "Satisfied": 4,
+        "Happy": 1
+      },
+    ];
+  
+    const layers = [
+      "grid",
+      "axes",
+      "bars",
+      "markers",
+      "legends",
+      NoDataLayer
+    ];
+  
     return (
       <ResponsiveBar
-        data={data}
+        data={barData}
         keys={[
-            'Positive',
-            'Neutral',
-            'Negative'
+          "Disgusted",
+          "Angry",
+          "Unsatisfied",
+          "Neutral",
+          "Satisfied",
+          "Happy"
         ]}
-        indexBy="empid"
+        indexBy="date"
         margin={{ top: 35, right: 100, bottom: 75, left: 60 }}
         padding={0.3}
         layout="vertical"
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
-        colors={['green','yellow','red']}
+        colors={colors}
+        layers={layers}
         defs={[
-            {
-                id: 'dots',
-                type: 'patternDots',
-                background: 'inherit',
-                color: '#38bcb2',
-                size: 4,
-                padding: 1,
-                stagger: true
-            },
-            {
-                id: 'lines',
-                type: 'patternLines',
-                background: 'inherit',
-                color: '#eed312',
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
-            }
-        ]}
-        fill={[
-            {
-                match: {
-                    id: 'Positive'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'Negative'
-                },
-                id: 'lines'
-            }
+          {
+            id: 'dots',
+            type: 'patternDots',
+            background: 'inherit',
+            color: '#38bcb2',
+            size: 4,
+            padding: 1,
+            stagger: true
+          },
+          {
+            id: 'lines',
+            type: 'patternLines',
+            background: 'inherit',
+            color: '#eed312',
+            rotation: -45,
+            lineWidth: 6,
+            spacing: 10
+          }
         ]}
         borderWidth={1}
-        borderColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    1.6
-                ]
-            ]
-        }}
         axisTop={null}
         axisRight={null}
         axisBottom={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'Calls',
-            legendPosition: 'middle',
-            legendOffset: 32
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: 'Date',
+          legendPosition: 'middle',
+          legendOffset: 32
         }}
         axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'Employee No.',
-            legendPosition: 'middle',
-            legendOffset: -40
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: 'Number of Calls',
+          legendPosition: 'middle',
+          legendOffset: -40
         }}
-        labelSkipWidth={12}
-        labelSkipHeight={12}
+        labelSkipWidth={2}
+        labelSkipHeight={22}
         labelTextColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    '1.6'
-                ]
+          from: 'color',
+          modifiers: [
+            [
+              'darker',
+              '1.6'
             ]
+          ]
         }}
         legends={[
-            {
-                dataFrom: 'keys',
-                anchor: 'top',
-                direction: 'row',
-                justify: false,
-                translateX: 0,
-                translateY: -25,
-                itemWidth: 100,
-                itemHeight: 20,
-                itemsSpacing: -5,
-                symbolSize: 20,
-                itemDirection: 'left-to-right'
-            }
+          {
+            dataFrom: 'keys',
+            anchor: 'top',
+            direction: 'row',
+            justify: false,
+            translateX: 0,
+            translateY: -25,
+            itemWidth: 100,
+            itemHeight: 20,
+            itemsSpacing: -5,
+            symbolSize: 20,
+            itemDirection: 'left-to-right'
+          }
         ]}
         role="application"
-        ariaLabel="Nivo bar chart demo"
-        barAriaLabel={e=>e.id+": "+e.formattedValue+" in empid: "+e.indexValue}
-    />
+        ariaLabel="Call Count Data"
+            barAriaLabel={e => e.id + ": " + e.formattedValue + " in date: " + e.indexValue}
+        />
     );
-  }
+}
+
+const NoDataLayer = ({ bars }) => {
+    return bars.map((bar) => {
+        const isNoData = Object.values(bar.data).every((value) => value === 0);
+
+        if (isNoData) {
+            return (
+                <text
+                    key={bar.key}
+                    x={bar.x + bar.width / 2}
+                    y={bar.y + bar.height / 2}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="gray"
+                    fontSize={12}
+                >
+                    NO DATA
+                </text>
+            );
+        }
+        return null;
+    });
+};
 
 export default EmpChart;

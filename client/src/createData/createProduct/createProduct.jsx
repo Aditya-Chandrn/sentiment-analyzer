@@ -61,7 +61,7 @@ const CreateProduct = () => {
             Image <input type='file' name="image" onChange={e => setSelectedFile(e.target.files[0])}/>
             Product Name <input type='text' name="prodName" onChange={e => setFname(e.target.value)}/>
             Product No <select type='dropdown' name="prodNo" onChange={e => setProdNo(e.target.value)}>
-                <option value={0}>0</option>
+                <option value={0} selected>0</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
             </select>

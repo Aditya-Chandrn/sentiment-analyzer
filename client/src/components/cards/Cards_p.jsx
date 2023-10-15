@@ -1,6 +1,5 @@
 import React from 'react'
 import "./Cards.css";
-import img from "../../assets/01.jpg"
 
 const CardsP = (props) => {
     return (
@@ -9,7 +8,7 @@ const CardsP = (props) => {
             <div className='flex'>
             {/* Image */}
             <div className={props.cardMin ? 'empImage' : props.active? 'empImageOpen': 'empImageSmall'}>
-                <img src= {img} alt=""/> {/*props.image*/}
+                <img src= {props.image} alt=""/> 
             </div>
             {/* Details */}
             <div className={props.cardMin ? 'empName' : props.active? 'empNameOpen': 'empNameSmall'}>
@@ -19,7 +18,7 @@ const CardsP = (props) => {
                         Product Id : {props.prodId} 
                     </div>
                     <div className='subtitles'>
-                        Release Date : {props.joinDate.slice(6,8)}/{props.joinDate.slice(4,6)}/{props.joinDate.slice(0,4)} 
+                        Release Date : {props.createdAt} 
                     </div>
                     <div className='subtitles'>
                         Performance : {props.empPerformance}

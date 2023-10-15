@@ -12,6 +12,7 @@ const ManyEmployees = ({ employees , setGraphData}) => {
 	const handleSelection = (employee, index) => {
 		selectedCard === index ? setSelectedCard(null) : setSelectedCard(index)
 
+		if(!employee.hasOwnProperty(performance)) return;
 		const graphData = calculateEmpPerformance(employee.id, employee.performance);
 		console.log(graphData)
 		setGraphData(graphData)
@@ -39,7 +40,6 @@ const ManyEmployees = ({ employees , setGraphData}) => {
 						fname={employee.fname}
 						lname={employee.lname}
 						image={employee.image}
-						// empPerformance={employee.type}
 						joinDate={employee.joined}
 						onClick={() => handleSelection(employee, index)}
 						active={selectedCard === index}

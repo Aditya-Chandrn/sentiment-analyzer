@@ -17,7 +17,7 @@ const Dashboard = () =>{
 
       </div>
 
-      <div className="container pie-container">
+      <div class="container pie-container">
         <PieChart data={data2}/>
       </div>
 

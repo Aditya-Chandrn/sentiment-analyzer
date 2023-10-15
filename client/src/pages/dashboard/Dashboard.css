@@ -80,7 +80,7 @@
   height: 95vh;
 }
 
-.pie-container {
+.pie {
   width: 20vw;
   height: 43.6vh;
 }
@@ -90,10 +90,26 @@
   max-height: 48vh;
 }
 
+.pie-container {
+  border: 1px solid #ccc;
+  max-height: 48vh;
+  display: inline-flex;
+}
+
+.pie-info {
+  width: 9vw;
+  height: 41vh;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
 .big-container {
   grid-column: span 3;
   border: 1px solid #ccc;
   height: 48vh;
+  overflow: hidden;
 }
 
 .stat-container{

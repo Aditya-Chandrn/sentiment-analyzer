@@ -111,6 +111,143 @@ const EmpChart = ({ data }) => {
         "Satisfied": 4,
         "Happy": 1
       },
+      {
+        "date": "2023-10-15",
+        "Disgusted": 0,
+        "Angry": 1,
+        "Unsatisfied": 2,
+        "Neutral": 0,
+        "Satisfied": 4,
+        "Happy": 1
+      },
+      {
+        "date": "2023-10-16",
+        "Disgusted": 0,
+        "Angry": 2,
+        "Unsatisfied": 3,
+        "Neutral": 1,
+        "Satisfied": 3,
+        "Happy": 1
+      },
+      {
+        "date": "2023-10-17",
+        "Disgusted": 1,
+        "Angry": 2,
+        "Unsatisfied": 2,
+        "Neutral": 2,
+        "Satisfied": 3,
+        "Happy": 0
+      },
+      {
+        "date": "2023-10-18",
+        "Disgusted": 0,
+        "Angry": 0,
+        "Unsatisfied": 3,
+        "Neutral": 3,
+        "Satisfied": 3,
+        "Happy": 1
+      },
+      {
+        "date": "2023-10-19",
+        "Disgusted": 2,
+        "Angry": 1,
+        "Unsatisfied": 3,
+        "Neutral": 2,
+        "Satisfied": 5,
+        "Happy": 1
+      },
+      {
+        "date": "2023-10-20",
+        "Disgusted": 0,
+        "Angry": 1,
+        "Unsatisfied": 3,
+        "Neutral": 2,
+        "Satisfied": 3,
+        "Happy": 4
+      },
+      {
+        "date": "2023-10-21",
+        "Disgusted": 0,
+        "Angry": 2,
+        "Unsatisfied": 1,
+        "Neutral": 3,
+        "Satisfied": 4,
+        "Happy": 3
+      },
+      {
+        "date": "2023-10-22",
+        "Disgusted": 1,
+        "Angry": 1,
+        "Unsatisfied": 3,
+        "Neutral": 1,
+        "Satisfied": 4,
+        "Happy": 7
+      },
+      {
+        "date": "2023-10-23",
+        "Disgusted": 1,
+        "Angry": 2,
+        "Unsatisfied": 2,
+        "Neutral": 2,
+        "Satisfied": 3,
+        "Happy": 1
+      },
+      {
+        "date": "2023-10-24",
+        "Disgusted": 1,
+        "Angry": 0,
+        "Unsatisfied": 2,
+        "Neutral": 3,
+        "Satisfied": 5,
+        "Happy": 1
+      },
+        {
+          "date": "2023-10-30",
+          "Disgusted": 1,
+          "Angry": 1,
+          "Unsatisfied": 2,
+          "Neutral": 4,
+          "Satisfied": 3,
+          "Happy": 2
+        },
+        {
+          "date": "2023-10-31",
+          "Disgusted": 2,
+          "Angry": 0,
+          "Unsatisfied": 3,
+          "Neutral": 3,
+          "Satisfied": 3,
+          "Happy": 1
+        },
+        {
+          "date": "2023-11-01",
+          "Disgusted": 0,
+          "Angry": 2,
+          "Unsatisfied": 1,
+          "Neutral": 5,
+          "Satisfied": 3,
+          "Happy": 1
+        },
+        {
+          "date": "2023-11-02",
+          "Disgusted": 1,
+          "Angry": 1,
+          "Unsatisfied": 3,
+          "Neutral": 2,
+          "Satisfied": 4,
+          "Happy": 1
+        },
+        {
+          "date": "2023-11-03",
+          "Disgusted": 2,
+          "Angry": 0,
+          "Unsatisfied": 1,
+          "Neutral": 4,
+          "Satisfied": 2,
+          "Happy": 3
+        }
+      
+      
     ];
   
     const layers = [
@@ -121,8 +258,19 @@ const EmpChart = ({ data }) => {
       "legends",
       NoDataLayer
     ];
+
+    const lineDataTransformed = [
+      {
+          id: 'calls',
+          data: barData.map(item => ({
+              x: item.date,
+              y: Object.values(item).reduce((a, b) => a + b, 0)
+          }))
+      }
+    ];
   
     return (
+      <>
       <ResponsiveBar
         data={barData}
         keys={[
@@ -134,7 +282,7 @@ const EmpChart = ({ data }) => {
           "Happy"
         ]}
         indexBy="date"
-        margin={{ top: 35, right: 100, bottom: 75, left: 60 }}
+        margin={{ top: 55, right: 100, bottom: 50, left: 60 }}
         padding={0.3}
         layout="vertical"
         valueScale={{ type: 'linear' }}
@@ -198,7 +346,7 @@ const EmpChart = ({ data }) => {
             direction: 'row',
             justify: false,
             translateX: 0,
-            translateY: -25,
+            translateY: -45,
             itemWidth: 100,
             itemHeight: 20,
             itemsSpacing: -5,
@@ -210,6 +358,42 @@ const EmpChart = ({ data }) => {
         ariaLabel="Call Count Data"
             barAriaLabel={e => e.id + ": " + e.formattedValue + " in date: " + e.indexValue}
         />
+      
+      <ResponsiveLine
+    data={lineDataTransformed}
+    xScale={{ type: 'point' }}
+    yScale={{ type: 'linear', min: 'auto', max: 'auto' }}
+    curve="monotoneX"
+    axisTop={null}
+    axisRight={null}
+    axisBottom={{
+        orient: 'bottom',
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: 'Date',
+        legendOffset: 36,
+        legendPosition: 'middle'
+    }}
+    yFormat=" >-.2f"
+    axisLeft={{
+        orient: 'left',
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: 'Number of Calls',
+        legendOffset: -40,
+        legendPosition: 'middle'
+    }}
+    colors={{ scheme: 'nivo' }}
+    pointSize={10}
+    pointColor={{ theme: 'background' }}
+    pointBorderWidth={2}
+    pointBorderColor={{ from: 'serieColor' }}
+    pointLabelYOffset={-12}
+    useMesh={true}
+      />
+      </>
     );
 }
 

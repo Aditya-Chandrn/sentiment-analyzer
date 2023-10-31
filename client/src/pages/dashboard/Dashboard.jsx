@@ -16,27 +16,66 @@ const Dashboard = (props) =>{
 
       <div className="container gauge-container">
         <GaugeChart/>
+        <br></br>
+        Overall Score
       </div>
 
       <div class="pie-container">
-        {/* <div class="pie"> */}
+          <div style={{
+                top: '3vh',
+                position: 'absolute',
+                fontSize: '1.5em',
+                fontWeight: 'bold',
+                textAlign: 'center',
+                fontFamily: 'sans-serif'
+            }}>
+              Overall Calls Distribution
+          </div>
           <PieChart data={data2}/>
-        {/* </div> */}
-        {/* <div class="pie-info">
-
-        </div> */}
       </div>
 
       <div className="container stat-container">
         <div className="top-stat">
-          hello
+          Overall Product Rating
+          <div style={{
+                  paddingTop: '3vh',
+                  fontSize: '3em',
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                  fontFamily: 'sans-serif',
+                  color: '#33ff8a'
+              }}>
+                4.2 / 5.0
+            </div>
         </div>
+        
         <div className="bottom-stat">
-          hello
+          Overall Employee Rating
+          <div style={{
+                  paddingTop: '3vh',
+                  fontSize: '3em',
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                  fontFamily: 'sans-serif',
+                  color: 'yellow'
+              }}>
+                3.8 / 5
+            </div>
         </div>
       </div>
 
       <div className="big-container">
+        <div style={{
+                  top: '52vh',
+                  left: '15vw',
+                  position: 'absolute',
+                  fontSize: '1.5em',
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                  fontFamily: 'sans-serif'
+              }}>
+                Calls Distribution Timeline
+            </div>
         <EmpChart data={data3}/>
       </div>
 

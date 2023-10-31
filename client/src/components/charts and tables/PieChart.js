@@ -59,6 +59,7 @@ const PieChart = ({ data }) => {
                 ]}
             />
             <div style={{
+                fontFamily: 'sans-serif',
                 position: 'absolute',
                 top: '27vh',
                 left: '47.56vw',

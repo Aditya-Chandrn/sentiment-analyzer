@@ -345,7 +345,7 @@ const EmpChart = ({ data }) => {
             anchor: 'top',
             direction: 'row',
             justify: false,
-            translateX: 0,
+            translateX: 400,
             translateY: -45,
             itemWidth: 100,
             itemHeight: 20,

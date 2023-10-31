@@ -2,12 +2,12 @@
     {
       "id": "Disgusted",
       "label": "Disgusted",
-      "value": 250
+      "value": 300
     },
     {
       "id": "Angry",
       "label": "Angry",
-      "value": 300
+      "value": 350
     },
     {
       "id": "Unsatisfied",

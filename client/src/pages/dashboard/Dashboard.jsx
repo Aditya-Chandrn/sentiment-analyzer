@@ -7,7 +7,7 @@ import data1 from './../../pages/dashboard/CallsTableData.json';
 import data2 from './../../pages/dashboard/PieChartData.json'
 import data3 from './../../pages/dashboard/EmpBarData.json'
 
-const Dashboard = () =>{
+const Dashboard = (props) =>{
 
   return(
     

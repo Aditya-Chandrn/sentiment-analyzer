@@ -21,8 +21,6 @@ const fetchAllEmployees = async () => {
             return {...employee}
         }));
 
-        console.log(employees);
-
         console.log("Fetched data of all employees.");
         return employees;
     } catch (error) {

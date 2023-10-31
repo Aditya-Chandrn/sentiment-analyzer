@@ -16,7 +16,7 @@ const Cards = (props) => {
                 <div className={props.cardMin ? 'title' : props.active? 'titleOpen': 'titleSmall'}>{props.fname} {props.lname}</div>
                 <div className={props.active? 'empDetails' : 'hid' }>
                     <div className='subtitles'>
-                        Employee Id : {props.empId} 
+                        Employee Id : {props.id} 
                     </div>
                     <div className='subtitles'>
                         Join Date : {props.joinDate} 

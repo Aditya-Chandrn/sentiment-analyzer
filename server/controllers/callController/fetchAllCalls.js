@@ -13,7 +13,7 @@ const fetchAllCalls = async () => {
             delete call.audioDriveId;
             calls.push(call);
         })
-        console.log("All calls fetched successfully");
+        console.log("All calls fetched successfully"); 
         return calls;
     }
     catch(error) {

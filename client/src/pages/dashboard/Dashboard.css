@@ -124,5 +124,6 @@
 
 .bottom-stat{
   border: 1px solid #ccc;
-  height: 20vh;
+  margin-top: 10px;
+  height: 10vh;
 }

@@ -68,7 +68,7 @@ const checkProceed = async (empId, prodId, createdTime, createdDate)=> {
     const stateRef = doc(firestoreDB, "stateData", "Available Id");
     const stateData = (await getDoc(stateRef)).data();
     const callId = stateData.callId;
-    const nextCallId = "CALL-" + (parseInt(callId.slice(5,), 16)+1).toString(16).padStart(2,"0").toUpperCase();
+    const nextCallId = "CALL-" + (parseInt(callId.slice(5,), 16)+1).toString(16).padStart(8,"0").toUpperCase();
     await updateDoc(stateRef, {callId : nextCallId});
 
     const isCall = await checkExist(callId, "callData");

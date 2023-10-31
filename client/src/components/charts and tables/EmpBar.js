@@ -1,174 +1,99 @@
-// import React from 'react';
-// import { Bar } from 'react-chartjs-2';
 
-// const EmpChart = ({ data }) => {
-//   const chartData = {
-//     labels: data.labels,
-//     datasets: [
-//       {
-//         label: 'Positive',
-//         backgroundColor: 'green',
-//         data: data.positive,
-//         categoryPercentage: 0.5, // Adjust the size of the outer bars
-//         barPercentage: 1.0, // Adjust the size of the inner bars
-//       },
-//       {
-//         label: 'Negative',
-//         backgroundColor: 'red',
-//         data: data.negative,
-//         categoryPercentage: 0.5,
-//         barPercentage: 1.0,
-//       },
-//       {
-//         label: 'Neutral',
-//         backgroundColor: 'yellow',
-//         data: data.neutral,
-//         categoryPercentage: 0.5,
-//         barPercentage: 1.0,
-//       },
-//     ],
-//   };
+import React from "react";
+import ReactApexChart from 'react-apexcharts';
+import ReactDOM from "react";
 
-//   const chartOptions = {
-//     responsive: true, // Make the chart responsive
-//     maintainAspectRatio: true, // Maintain the aspect ratio
-//     aspectRatio: 1.65, // Adjust the aspect ratio
-//     scales: {
-//       x: {
-//         stacked: true,
-//       },
-//       y: {
-//         stacked: true,
-//       },
-//     },
-//     plugins: {
-//       legend: {
-//         display: true,
-//       },
-//     },
-//   };
+class ApexChart extends React.Component {
+  constructor(props) {
+    super(props);
 
-//   return (
-//     <div style={{height:'90%', width:'90%'}}>
-//       <Bar data={chartData} options={chartOptions} />
-//     </div>
-//   );
-// };
-
-
-import React from 'react';
-import { ResponsiveBar } from '@nivo/bar'
-
-const EmpChart = ({data}) => {
-
-    return (
-      <ResponsiveBar
-        data={data}
-        keys={[
-            'Positive',
-            'Neutral',
-            'Negative'
-        ]}
-        indexBy="empid"
-        margin={{ top: 35, right: 100, bottom: 75, left: 60 }}
-        padding={0.3}
-        layout="vertical"
-        valueScale={{ type: 'linear' }}
-        indexScale={{ type: 'band', round: true }}
-        colors={['green','yellow','red']}
-        defs={[
-            {
-                id: 'dots',
-                type: 'patternDots',
-                background: 'inherit',
-                color: '#38bcb2',
-                size: 4,
-                padding: 1,
-                stagger: true
-            },
-            {
-                id: 'lines',
-                type: 'patternLines',
-                background: 'inherit',
-                color: '#eed312',
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
+    this.state = {
+    
+      series: [{
+        name: 'TEAM A',
+        type: 'column',
+        data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+      }, {
+        name: 'TEAM B',
+        type: 'area',
+        data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
+      }, {
+        name: 'TEAM C',
+        type: 'line',
+        data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
+      }],
+      options: {
+        chart: {
+          height: 350,
+          type: 'line',
+          stacked: false,
+        },
+        stroke: {
+          width: [0, 2, 5],
+          curve: 'smooth'
+        },
+        plotOptions: {
+          bar: {
+            columnWidth: '50%'
+          }
+        },
+        
+        fill: {
+          opacity: [0.85, 0.25, 1],
+          gradient: {
+            inverseColors: false,
+            shade: 'light',
+            type: "vertical",
+            opacityFrom: 0.85,
+            opacityTo: 0.55,
+            stops: [0, 100, 100, 100]
+          }
+        },
+        labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
+          '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
+        ],
+        markers: {
+          size: 0
+        },
+        xaxis: {
+          type: 'datetime'
+        },
+        yaxis: {
+          title: {
+            text: 'Points',
+          },
+          min: 0
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          y: {
+            formatter: function (y) {
+              if (typeof y !== "undefined") {
+                return y.toFixed(0) + " points";
+              }
+              return y;
+        
             }
-        ]}
-        fill={[
-            {
-                match: {
-                    id: 'Positive'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'Negative'
-                },
-                id: 'lines'
-            }
-        ]}
-        borderWidth={1}
-        borderColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    1.6
-                ]
-            ]
-        }}
-        axisTop={null}
-        axisRight={null}
-        axisBottom={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'Calls',
-            legendPosition: 'middle',
-            legendOffset: 32
-        }}
-        axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'Employee No.',
-            legendPosition: 'middle',
-            legendOffset: -40
-        }}
-        labelSkipWidth={12}
-        labelSkipHeight={12}
-        labelTextColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    '1.6'
-                ]
-            ]
-        }}
-        legends={[
-            {
-                dataFrom: 'keys',
-                anchor: 'top',
-                direction: 'row',
-                justify: false,
-                translateX: 0,
-                translateY: -25,
-                itemWidth: 100,
-                itemHeight: 20,
-                itemsSpacing: -5,
-                symbolSize: 20,
-                itemDirection: 'left-to-right'
-            }
-        ]}
-        role="application"
-        ariaLabel="Nivo bar chart demo"
-        barAriaLabel={e=>e.id+": "+e.formattedValue+" in empid: "+e.indexValue}
-    />
-    );
+          }
+        }
+      },
+    
+    
+    };
   }
 
-export default EmpChart;
+
+  render() {
+    return (
+      <div id="chart">
+        <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={350} />
+      </div>
+    );
+  }
+}
+
+export default ApexChart;
+
+// const domContainer = document.querySelector('#app');
+// ReactDOM.render(<ApexChart />, domContainer); // Use JSX syntax instead of React.createElement

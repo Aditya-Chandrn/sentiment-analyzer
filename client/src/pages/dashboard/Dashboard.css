@@ -74,14 +74,15 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
-  grid-gap: 10px;
-  margin: 10px;
-  width: 94vw;
-  height: 97vh;
+  grid-gap: 20px;
+  margin: 20px;
+  width: 92vw;
+  height: 95vh;
 }
 
-.pie-container {
-  overflow: hidden;
+.pie {
+  width: 20vw;
+  height: 43.6vh;
 }
 
 .container {
@@ -89,33 +90,40 @@
   max-height: 48vh;
 }
 
+.pie-container {
+  border: 1px solid #ccc;
+  max-height: 48vh;
+  display: inline-flex;
+}
+
+.pie-info {
+  width: 9vw;
+  height: 41vh;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
 .big-container {
   grid-column: span 3;
   border: 1px solid #ccc;
   height: 48vh;
+  overflow: hidden;
 }
 
 .stat-container{
-  padding: 10px;
   border: none;
 }
 
 .top-stat{
   border: 1px solid #ccc;
-  margin-top: 3.2vh;
-  position: relative;
   height: 20vh;
+  margin-bottom: 27px;
 }
 
 .bottom-stat{
   border: 1px solid #ccc;
-  margin-top: 3vh;
-  height: 20vh;
-}
-
-.count{
-  position: absolute;
-  top: 3vh;
-  left: 3vw;
-  font-size: 6vh;
+  margin-top: 10px;
+  height: 10vh;
 }

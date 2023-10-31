@@ -9,17 +9,17 @@ const Cards = (props) => {
             <div className='flex'>
             {/* Image */}
             <div className={props.cardMin ? 'empImage' : props.active? 'empImageOpen': 'empImageSmall'}>
-                <img src= {img} alt=""/> {/*props.image*/}
+                <img src= {props.image} alt=""/> 
             </div>
             {/* Details */}
             <div className={props.cardMin ? 'empName' : props.active? 'empNameOpen': 'empNameSmall'}>
                 <div className={props.cardMin ? 'title' : props.active? 'titleOpen': 'titleSmall'}>{props.fname} {props.lname}</div>
                 <div className={props.active? 'empDetails' : 'hid' }>
                     <div className='subtitles'>
-                        Employee Id : {props.empId} 
+                        Employee Id : {props.id} 
                     </div>
                     <div className='subtitles'>
-                        Join Date : {props.joinDate.slice(6,8)}/{props.joinDate.slice(4,6)}/{props.joinDate.slice(0,4)} 
+                        Join Date : {props.joinDate} 
                     </div>
                     <div className='subtitles'>
                         Performance : {props.empPerformance}

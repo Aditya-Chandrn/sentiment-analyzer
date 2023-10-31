@@ -1,26 +1,27 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { firestoreDB } from "../../configs/firestoreConfig.js";
 import bucket from "../../configs/fireStorageConfig.js";
 
 
 const fetchAllEmployees = async () => {
-    const collectionRef = collection(firestoreDB, "employeeData");
+    const employeeRef = collection(firestoreDB, "employeeData");
+    const employeeQuery = query(employeeRef, where("type","==",0));
     
+    console.log("----------- FETCHING ALL EMPLOYEES ----------");
+
     try {
-        const snapshot = await getDocs(collectionRef);
+        const employeeData = await getDocs(employeeQuery);
         let employees = [];
     
-        const imagePromises = snapshot.docs.map(async (doc) => {
-            const employeeData = doc.data();
+        employees = await Promise.all(employeeData.docs.map(async (doc) => {
+            const employee = doc.data();
             const id = doc.id;
             const image = await getImage(id);
-            console.log("empSuccess");
-            return { ...employeeData, id, image}; //, image
-        });
+            employee.image = image;
+            return {...employee}
+        }));
 
-        // Wait for all image promises to resolve
-        employees = await Promise.all(imagePromises);
-        console.log("All employee data sent.");
+        console.log("Fetched data of all employees.");
         return employees;
     } catch (error) {
         console.error('ERROR:', error.message);

@@ -11,18 +11,46 @@ const evaluatePerformance = async (callData) => {
     let sum = 0;
     for (const rating of performance) sum += rating;
     const avg = Math.round(sum / size);
-    // const avg = 1;
 
     performance = performance.map((rating) => Math.round(rating))
 
     const callRef = doc(firestoreDB, "callData", callId);
-    await updateDoc(callRef, { performance });
+    await updateDoc(callRef, { performance, averageRating: avg });
+
+    incrementCallCount(createdDate, avg);
     
     addEmpPerformance(empId, createdDate, blackListed, avg);
     addProdPerformance(prodId, createdDate, avg);
 
     console.log("Performance updated successfully.");
     return;
+}
+
+const incrementCallCount = async (createdDate, avg) => {
+    const stateRef = doc(firestoreDB, "stateData", "callCounts");
+    const callCountData = (await getDoc(stateRef)).data();
+
+    if(!callCountData.hasOwnProperty(createdDate)){
+        let callRatingCount = new Array(6).fill(0);
+        callRatingCount[avg] += 1;
+        await updateDoc(stateRef, {
+            [createdDate] : {
+                callCount: 1, 
+                callRatingCount : callRatingCount
+            }
+        });
+        return;
+    }
+
+    let callRatingCount = callCountData[createdDate]["callRatingCount"];
+    callRatingCount[avg] += 1;
+    const newCallCount = callCountData[createdDate]["callCount"] + 1;
+    await updateDoc(stateRef, {
+        [createdDate]: {
+            callCount: newCallCount,
+            callRatingCount: callRatingCount
+        }
+    })
 }
 
 //------------------- ADD EMPLOYEE PERFORMANCE --------------------
@@ -56,7 +84,8 @@ const addEmpPerformance = async (empId, createdDate, blackListed, avg) => {
     const existingBlackListed = existingPerformance.blackListed;
     const existingCount = existingPerformance.callCount;
 
-    const newAverage = (existingAverage * existingCount + avg) / (existingCount + 1);
+    let newAverage = (existingAverage * existingCount + avg) / (existingCount + 1);
+    newAverage = newAverage.toFixed(1);
     const newBlackListed = blackListed.concat(existingBlackListed);
 
     const newPerformance = {
@@ -100,7 +129,8 @@ const addProdPerformance = async (prodId, createdDate, avg) => {
     const existingAverage = existingPerformance.averageRating;
     const existingCount = existingPerformance.callCount;
 
-    const newAverage = (existingAverage * existingCount + avg) / (existingCount + 1);
+    let newAverage = (existingAverage * existingCount + avg) / (existingCount + 1);
+    newAverage = newAverage.toFixed(1);
 
     const newPerformance = {
         [createdDate]: {

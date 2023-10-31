@@ -12,7 +12,7 @@ const ManyEmployees = ({ employees , setGraphData}) => {
 	const handleSelection = (employee, index) => {
 		selectedCard === index ? setSelectedCard(null) : setSelectedCard(index)
 
-		if(!employee.hasOwnProperty(performance)) return;
+		if(!employee.hasOwnProperty("performance")) return;
 		const graphData = calculateEmpPerformance(employee.id, employee.performance);
 		console.log(graphData)
 		setGraphData(graphData)
@@ -36,7 +36,7 @@ const ManyEmployees = ({ employees , setGraphData}) => {
 				, currentLimit).map((employee, index) => (
 					<Cards
 						key={index}
-						empId={employee.id}
+						empId={employee.empId}
 						fname={employee.fname}
 						lname={employee.lname}
 						image={employee.image}

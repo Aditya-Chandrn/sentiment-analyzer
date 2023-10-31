@@ -1,17 +1,32 @@
 [
     {
-      "id": "One",
-      "label": "One",
-      "value": 3
+      "id": "Disgusted",
+      "label": "Disgusted",
+      "value": 250
     },
     {
-      "id": "Two",
-      "label": "Two",
-      "value": 6
+      "id": "Angry",
+      "label": "Angry",
+      "value": 300
     },
     {
-      "id": "Three",
-      "label": "Three",
-      "value": 9
+      "id": "Unsatisfied",
+      "label": "Unsatisfied",
+      "value": 600
+    },
+    {
+      "id": "Neutral",
+      "label": "Neutral",
+      "value": 1200
+    },
+    {
+      "id": "Satisfied",
+      "label": "Satisfied",
+      "value": 3500
+    },
+    {
+      "id": "Happy",
+      "label": "Happy",
+      "value": 2000
     }
 ]

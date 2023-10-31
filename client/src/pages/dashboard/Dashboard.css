@@ -48,7 +48,7 @@
   padding-bottom: 30px;
   width: 30vw;
   height: 45vh;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 2px solid black;
 }
 
@@ -62,7 +62,7 @@
   padding-bottom: 30px;
   width: 30vw;
   height: 45vh;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 2px solid black;
 } */
 
@@ -80,34 +80,45 @@
   height: 95vh;
 }
 
-.pie {
+/* .pie {
   width: 20vw;
   height: 43.6vh;
+} */
+
+.gauge-container{
+  font-family: sans-serif;
+  text-align: center;  
 }
 
 .container {
   border: 1px solid #ccc;
+  border-radius: 10px;
   max-height: 48vh;
 }
 
 .pie-container {
   border: 1px solid #ccc;
-  max-height: 48vh;
-  display: inline-flex;
+  border-radius: 10px;
+  max-height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 20px; */
 }
 
-.pie-info {
+/* .pie-info {
   width: 9vw;
   height: 41vh;
   border: 1px solid #ccc;
   margin-top: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
-}
+} */
 
 .big-container {
   grid-column: span 3;
   border: 1px solid #ccc;
+  border-radius: 10px;
   height: 48vh;
   overflow: hidden;
 }
@@ -118,12 +129,20 @@
 
 .top-stat{
   border: 1px solid #ccc;
-  height: 20vh;
+  border-radius: 10px;
+  height: 18vh;
   margin-bottom: 27px;
+  padding: 10px;
+  background-color: #02ccbb;
+  color: #ffff;
 }
 
 .bottom-stat{
   border: 1px solid #ccc;
+  border-radius: 10px;
   margin-top: 10px;
-  height: 10vh;
+  height: 18vh;
+  padding: 10px;
+  background-color: #0296cc;
+  color: #ffff;
 }

@@ -6,6 +6,7 @@ import PieChart from './../../components/charts and tables/PieChart';
 import data1 from './../../pages/dashboard/CallsTableData.json';
 import data2 from './../../pages/dashboard/PieChartData.json'
 import data3 from './../../pages/dashboard/EmpBarData.json'
+import GaugeChart from 'components/charts and tables/GaugeChart';
 
 const Dashboard = (props) =>{
 
@@ -13,17 +14,17 @@ const Dashboard = (props) =>{
     
     <div className="dashboard">
 
-      <div className="container">
-
+      <div className="container gauge-container">
+        <GaugeChart/>
       </div>
 
       <div class="pie-container">
-        <div class="pie">
+        {/* <div class="pie"> */}
           <PieChart data={data2}/>
-        </div>
-        <div class="pie-info">
+        {/* </div> */}
+        {/* <div class="pie-info">
 
-        </div>
+        </div> */}
       </div>
 
       <div className="container stat-container">

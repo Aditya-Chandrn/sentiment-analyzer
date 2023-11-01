@@ -12,7 +12,7 @@ const CardsP = (props) => {
             </div>
             {/* Details */}
             <div className={props.cardMin ? 'empName' : props.active? 'empNameOpen': 'empNameSmall'}>
-                <div className={props.cardMin ? 'title' : props.active? 'titleOpen': 'titleSmall'}>{props.fname}</div>
+                <div className={props.cardMin ? 'title' : props.active? 'titleOpen': 'titleSmall'}>{props.prodName}</div>
                 <div className={props.active? 'empDetails' : 'hid' }>
                     <div className='subtitles'>
                         Product Id : {props.prodId} 
@@ -21,7 +21,7 @@ const CardsP = (props) => {
                         Release Date : {props.createdAt} 
                     </div>
                     <div className='subtitles'>
-                        Performance : {props.empPerformance}
+                        Performance : {props.performance}
                     </div>
                 </div>
             </div>

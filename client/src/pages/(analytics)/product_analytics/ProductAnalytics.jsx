@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from "./product.module.css";
 import SearchIcon from "assets/search.png";
 import AllProducts from 'components/productFetch/AllProducts';
 import LineChart from 'components/charts and tables/LineChart';
-import { calculateProdPerformance } from 'utils/graphData';
-
-import performance from "utils/performance.json"
 
 const ProductAnalytics = () => {
   const [graphData, setGraphData] = useState([]);
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    const graph = calculateProdPerformance("apple",performance);
-    setGraphData(graph)
-  
-  }, []);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -43,13 +34,13 @@ const ProductAnalytics = () => {
       </div>
       <div className="flex-container">
         <div className='new'>
-          <AllProducts />
+          <AllProducts setGraphData={setGraphData}/>
         </div>
 
         {/*-------------------- PRODUCT ANALYTICS ------------------ */}
         <div className='new'>
           <h2>Performance Graph</h2>
-          <LineChart data = {graphData}/>
+          {graphData ? <LineChart data = {graphData}/> : <></>}
         </div>
       </div>
     </div>

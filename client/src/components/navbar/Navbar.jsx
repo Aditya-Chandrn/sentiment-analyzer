@@ -74,7 +74,7 @@ const options = [
     {name: "Dashboard", icon: DashboardIcon, link: "/"},
     {name: "Product Analytics", icon: ProductAnalyticsIcon, link: "/product_analytics"},
     {name: "Employee Analytics", icon: EmpAnalyticsIcon, link: "/emp_analytics"},
-    {name: "Records", icon: RecordsIcon, link: "/records"}
+    {name: "Call Records", icon: RecordsIcon, link: "/call_records"}
 ]
 
 const Navbar = ({children}) => {

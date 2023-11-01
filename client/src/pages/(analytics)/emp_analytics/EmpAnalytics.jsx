@@ -59,7 +59,7 @@ const EmployeeAnalytics = () => {
 
 				{/*-------------------- EMPLOYEE ANALYTICS ------------------ */}
 				<div className='new'>
-					{console.log(graphData)}
+					<h2>Performance Graph</h2>
 					{graphData ? <LineChart data = {graphData}/> : <></>}
 				</div>
 			</div>

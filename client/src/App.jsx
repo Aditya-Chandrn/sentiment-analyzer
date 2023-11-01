@@ -8,7 +8,7 @@ import Login from 'pages/login/Login';
 import Dashboard from 'pages/dashboard/Dashboard';
 import EmployeeAnalytics from 'pages/(analytics)/emp_analytics/EmpAnalytics';
 import ProductAnalytics from 'pages/(analytics)/product_analytics/ProductAnalytics';
-import Records from 'pages/records/Records';
+import CallRecords from 'pages/callRecords/CallRecords';
 import CreateEmployee from 'createData/createEmployee/createEmployee';
 import CreateProduct from 'createData/createProduct/createProduct';
 import CreateCall from 'createData/createCall/createCall';
@@ -28,7 +28,7 @@ function App() {
           <Route index element={<Dashboard/>}/>
           <Route path='/emp_analytics' element={<EmployeeAnalytics/>}/>
           <Route path='/product_analytics' element={<ProductAnalytics/>}/>
-          <Route path='/records' element={<Records/>}/>
+          <Route path='/call_records' element={<CallRecords/>}/>
         </Route>
       </Routes>
     </div>

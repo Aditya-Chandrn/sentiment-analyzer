@@ -76,178 +76,176 @@ const EmpChart = ({ data }) => {
   
     const barData = [
       {
-        date: "2023-10-12",
+        "date": "2023-10-15",
         "Disgusted": 1,
         "Angry": 0,
-        "Unsatisfied": 3,
-        "Neutral": 4,
+        "Unsatisfied": 0,
+        "Neutral": 2,
         "Satisfied": 1,
         "Happy": 0
       },
       {
-        date: "2023-10-13",
-        "Disgusted": 0,
-        "Angry": 0,
-        "Unsatisfied": 0,
-        "Neutral": 0,
-        "Satisfied": 0,
-        "Happy": 0
-      },
-      {
-        date: "2023-10-14",
-        "Disgusted": 0,
-        "Angry": 0,
-        "Unsatisfied": 0,
-        "Neutral": 0,
-        "Satisfied": 0,
-        "Happy": 0
-      },
-      {
-        date: "2023-10-15",
+        "date": "2023-11-31",
         "Disgusted": 0,
         "Angry": 1,
         "Unsatisfied": 2,
         "Neutral": 0,
-        "Satisfied": 4,
+        "Satisfied": 2,
         "Happy": 1
       },
       {
-        "date": "2023-10-15",
-        "Disgusted": 0,
-        "Angry": 1,
-        "Unsatisfied": 2,
-        "Neutral": 0,
-        "Satisfied": 4,
-        "Happy": 1
-      },
-      {
-        "date": "2023-10-16",
-        "Disgusted": 0,
-        "Angry": 2,
-        "Unsatisfied": 3,
+        "date": "2023-10-30",
+        "Disgusted": 2,
+        "Angry": 0,
+        "Unsatisfied": 1,
         "Neutral": 1,
-        "Satisfied": 3,
-        "Happy": 1
+        "Satisfied": 0,
+        "Happy": 2
       },
       {
-        "date": "2023-10-17",
+        "date": "2023-10-29",
         "Disgusted": 1,
         "Angry": 2,
-        "Unsatisfied": 2,
-        "Neutral": 2,
-        "Satisfied": 3,
+        "Unsatisfied": 0,
+        "Neutral": 1,
+        "Satisfied": 1,
         "Happy": 0
       },
       {
-        "date": "2023-10-18",
+        "date": "2023-10-28",
         "Disgusted": 0,
-        "Angry": 0,
-        "Unsatisfied": 3,
-        "Neutral": 3,
-        "Satisfied": 3,
-        "Happy": 1
+        "Angry": 1,
+        "Unsatisfied": 2,
+        "Neutral": 0,
+        "Satisfied": 2,
+        "Happy": 0
       },
       {
-        "date": "2023-10-19",
+        "date": "2023-10-27",
+        "Disgusted": 0,
+        "Angry": 0,
+        "Unsatisfied": 1,
+        "Neutral": 2,
+        "Satisfied": 1,
+        "Happy": 2
+      },
+      {
+        "date": "2023-10-26",
         "Disgusted": 2,
         "Angry": 1,
-        "Unsatisfied": 3,
-        "Neutral": 2,
-        "Satisfied": 5,
-        "Happy": 1
-      },
-      {
-        "date": "2023-10-20",
-        "Disgusted": 0,
-        "Angry": 1,
-        "Unsatisfied": 3,
-        "Neutral": 2,
-        "Satisfied": 3,
-        "Happy": 4
-      },
-      {
-        "date": "2023-10-21",
-        "Disgusted": 0,
-        "Angry": 2,
-        "Unsatisfied": 1,
-        "Neutral": 3,
-        "Satisfied": 4,
-        "Happy": 3
-      },
-      {
-        "date": "2023-10-22",
-        "Disgusted": 1,
-        "Angry": 1,
-        "Unsatisfied": 3,
+        "Unsatisfied": 0,
         "Neutral": 1,
-        "Satisfied": 4,
-        "Happy": 7
-      },
-      {
-        "date": "2023-10-23",
-        "Disgusted": 1,
-        "Angry": 2,
-        "Unsatisfied": 2,
-        "Neutral": 2,
-        "Satisfied": 3,
+        "Satisfied": 0,
         "Happy": 1
       },
       {
-        "date": "2023-10-24",
+        "date": "2023-10-25",
         "Disgusted": 1,
         "Angry": 0,
         "Unsatisfied": 2,
-        "Neutral": 3,
-        "Satisfied": 5,
-        "Happy": 1
-      },
-        {
-          "date": "2023-10-30",
-          "Disgusted": 1,
-          "Angry": 1,
-          "Unsatisfied": 2,
-          "Neutral": 4,
-          "Satisfied": 3,
-          "Happy": 2
-        },
-        {
-          "date": "2023-10-31",
-          "Disgusted": 2,
-          "Angry": 0,
-          "Unsatisfied": 3,
-          "Neutral": 3,
-          "Satisfied": 3,
-          "Happy": 1
-        },
-        {
-          "date": "2023-11-01",
-          "Disgusted": 0,
-          "Angry": 2,
-          "Unsatisfied": 1,
-          "Neutral": 5,
-          "Satisfied": 3,
-          "Happy": 1
-        },
-        {
-          "date": "2023-11-02",
-          "Disgusted": 1,
-          "Angry": 1,
-          "Unsatisfied": 3,
-          "Neutral": 2,
-          "Satisfied": 4,
-          "Happy": 1
-        },
-        {
-          "date": "2023-11-03",
-          "Disgusted": 2,
-          "Angry": 0,
-          "Unsatisfied": 1,
-          "Neutral": 4,
-          "Satisfied": 2,
-          "Happy": 3
-        }
-      
-      
+        "Neutral": 0,
+        "Satisfied": 1,
+        "Happy": 2
+      }
+      // {
+      //   "date": "2023-10-19",
+      //   "Disgusted": 2,
+      //   "Angry": 1,
+      //   "Unsatisfied": 3,
+      //   "Neutral": 2,
+      //   "Satisfied": 5,
+      //   "Happy": 1
+      // },
+      // {
+      //   "date": "2023-10-20",
+      //   "Disgusted": 0,
+      //   "Angry": 1,
+      //   "Unsatisfied": 3,
+      //   "Neutral": 2,
+      //   "Satisfied": 3,
+      //   "Happy": 4
+      // },
+      // {
+      //   "date": "2023-10-21",
+      //   "Disgusted": 0,
+      //   "Angry": 2,
+      //   "Unsatisfied": 1,
+      //   "Neutral": 3,
+      //   "Satisfied": 4,
+      //   "Happy": 3
+      // },
+      // {
+      //   "date": "2023-10-22",
+      //   "Disgusted": 1,
+      //   "Angry": 1,
+      //   "Unsatisfied": 3,
+      //   "Neutral": 1,
+      //   "Satisfied": 4,
+      //   "Happy": 7
+      // },
+      // {
+      //   "date": "2023-10-23",
+      //   "Disgusted": 1,
+      //   "Angry": 2,
+      //   "Unsatisfied": 2,
+      //   "Neutral": 2,
+      //   "Satisfied": 3,
+      //   "Happy": 1
+      // },
+      // {
+      //   "date": "2023-10-24",
+      //   "Disgusted": 1,
+      //   "Angry": 0,
+      //   "Unsatisfied": 2,
+      //   "Neutral": 3,
+      //   "Satisfied": 5,
+      //   "Happy": 1
+      // },
+      //   {
+      //     "date": "2023-10-30",
+      //     "Disgusted": 1,
+      //     "Angry": 1,
+      //     "Unsatisfied": 2,
+      //     "Neutral": 4,
+      //     "Satisfied": 3,
+      //     "Happy": 2
+      //   },
+      //   {
+      //     "date": "2023-10-31",
+      //     "Disgusted": 2,
+      //     "Angry": 0,
+      //     "Unsatisfied": 3,
+      //     "Neutral": 3,
+      //     "Satisfied": 3,
+      //     "Happy": 1
+      //   },
+      //   {
+      //     "date": "2023-11-01",
+      //     "Disgusted": 0,
+      //     "Angry": 2,
+      //     "Unsatisfied": 1,
+      //     "Neutral": 5,
+      //     "Satisfied": 3,
+      //     "Happy": 1
+      //   },
+      //   {
+      //     "date": "2023-11-02",
+      //     "Disgusted": 1,
+      //     "Angry": 1,
+      //     "Unsatisfied": 3,
+      //     "Neutral": 2,
+      //     "Satisfied": 4,
+      //     "Happy": 1
+      //   },
+      //   {
+      //     "date": "2023-11-03",
+      //     "Disgusted": 2,
+      //     "Angry": 0,
+      //     "Unsatisfied": 1,
+      //     "Neutral": 4,
+      //     "Satisfied": 2,
+      //     "Happy": 3
+      //   }
     ];
   
     const layers = [

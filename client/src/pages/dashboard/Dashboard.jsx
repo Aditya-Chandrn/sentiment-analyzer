@@ -29,14 +29,14 @@ const Dashboard = (props) =>{
                 textAlign: 'center',
                 fontFamily: 'sans-serif'
             }}>
-              Overall Calls Distribution
+              Customer Satisfaction Distribution
           </div>
           <PieChart data={data2}/>
       </div>
 
       <div className="container stat-container">
         <div className="top-stat">
-          Overall Product Rating
+          Average Product Rating
           <div style={{
                   paddingTop: '3vh',
                   fontSize: '3em',
@@ -45,12 +45,12 @@ const Dashboard = (props) =>{
                   fontFamily: 'sans-serif',
                   color: '#33ff8a'
               }}>
-                4.2 / 5.0
+                2.5 / 5
             </div>
         </div>
         
         <div className="bottom-stat">
-          Overall Employee Rating
+          Average Employee Rating
           <div style={{
                   paddingTop: '3vh',
                   fontSize: '3em',
@@ -59,7 +59,7 @@ const Dashboard = (props) =>{
                   fontFamily: 'sans-serif',
                   color: 'yellow'
               }}>
-                3.8 / 5
+                3.1 / 5
             </div>
         </div>
       </div>

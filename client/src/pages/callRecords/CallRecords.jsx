@@ -25,6 +25,8 @@ const CallRecords = () => {
 					return call;
 				});
 
+				allCalls = allCalls.reverse();
+
 				setCalls(allCalls);
 			})
 			.catch((error) =>
@@ -54,9 +56,11 @@ const CallRecords = () => {
 				<tr className={styles.heading}>
 					<th>Sr. No.</th>
 					<th>Call ID</th>
-					<th>Product Id</th>
+					<th>Product ID</th>
 					<th>Employee ID</th>
 					<th>Call Rating</th>
+					<th>Date</th>
+					<th>Time</th>
 				</tr>
 				{calls.slice(currentLimit - 10, currentLimit).map((call, index) =>
 					<tr key={index}>
@@ -65,13 +69,16 @@ const CallRecords = () => {
 						<td>{call.prodId}</td>
 						<td>{call.empId}</td>
 						<td>{call.rating}</td>
+						<td>{call.createdDate}</td>
+						<td>{call.createdTime}</td>
 					</tr>
 				)}
 			</table>
 			<div className={styles.footer}>
 				<button className={styles.button} onClick={decreaseLimit}>&lt;</button>
 				&nbsp;&nbsp;&nbsp;
-				{currentLimit - 9} - {(currentLimit > calls.length) ? calls.length : currentLimit} of {calls.length}
+				{currentLimit - 9} - {(currentLimit > calls.length) ? calls.length : currentLimit}
+				{/* {currentLimit - 9} - {(currentLimit > calls.length) ? calls.length : currentLimit} of {calls.length} */}
 				&nbsp;&nbsp;&nbsp;
 				<button className={styles.button} onClick={increaseLimit}>&gt;</button>
 			</div>

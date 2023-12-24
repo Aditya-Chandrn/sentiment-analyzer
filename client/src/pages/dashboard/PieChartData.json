@@ -2,31 +2,31 @@
     {
       "id": "Disgusted",
       "label": "Disgusted",
-      "value": 300
+      "value": 1
     },
     {
       "id": "Angry",
       "label": "Angry",
-      "value": 350
+      "value": 2
     },
     {
       "id": "Unsatisfied",
       "label": "Unsatisfied",
-      "value": 600
+      "value": 7
     },
     {
       "id": "Neutral",
       "label": "Neutral",
-      "value": 1200
+      "value": 6
     },
     {
       "id": "Satisfied",
       "label": "Satisfied",
-      "value": 3500
+      "value": 3
     },
     {
       "id": "Happy",
       "label": "Happy",
-      "value": 2000
+      "value": 2
     }
 ]

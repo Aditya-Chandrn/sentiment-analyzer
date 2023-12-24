@@ -20,7 +20,7 @@ const GaugeChart = () => {
                 color: "#2980B9",
                 animationDelay: 0
             }}
-            value={68}
+            value={52}
             style={{width: '100%'}}
             labels={{
                 valueLabel: {

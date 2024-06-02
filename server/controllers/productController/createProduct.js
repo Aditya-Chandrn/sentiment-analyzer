@@ -26,7 +26,7 @@ const createProduct = async (image, prodName, createdAt, prodNo) => {
     }))
 
     writeStream.on('finish', async ()=> {
-        const newProduct = {prodId, prodName, createdAt, prodNo, image : fileName};
+        const newProduct = {prodId, prodName, createdAt, performance: [], prodNo, image : fileName};
         await setDoc(doc(firestoreDB, "productData", prodId), newProduct);
 
         console.log("File uploaded succesfully.");

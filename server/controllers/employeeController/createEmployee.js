@@ -26,7 +26,7 @@ const createEmployee = async (image, fname, lname, joined, type) => {
     }))
 
     writeStream.on('finish', async ()=> {
-        const newEmployee = {empId, fname, lname, joined, type, image : fileName};
+        const newEmployee = {empId, fname, lname, joined, performance: [], type, image : fileName};
         await setDoc(doc(firestoreDB, "employeeData", empId), newEmployee);
 
         console.log("File uploaded succesfully.");
